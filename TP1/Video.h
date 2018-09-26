@@ -3,17 +3,20 @@
 
 #include "Multimedia.h"
 
-class Video : public Multimedia
-{
+class Video : public Multimedia{
 private:
   int duration = 0;
 
 public:
   Video(string name, string path, int duration) : duration(duration), Multimedia(name, path) {}
+  ~Video();
   void setDuration(int duration) { duration = duration; }
   int getDuration() const { return duration; }
-  void show(ostream &);
-  ~Video();
+
+  void show(ostream &s){
+    Multimedia::show(s);
+    s << getDuration() << '\n';
+  }
 };
 
 #endif // VIDEO_H

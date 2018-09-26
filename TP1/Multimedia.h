@@ -12,12 +12,14 @@ private:
 public:
   Multimedia();
   Multimedia(string name, string path) : name(name), path(path) {}
-  void setName(string name) { name = name; }
-  void setPath(string path) { path = path; }
-  string getName() const { return name; }
-  string getPath() const { return path; }
-  virtual void show(ostream &);
   ~Multimedia();
+  virtual void setName(string name) { name = name; }
+  virtual void setPath(string path) { path = path; }
+  virtual string getName() const { return name; }
+  virtual string getPath() const { return path; }
+  virtual void show(ostream &s){
+    s << "Name: " + getName() << '\n' << "Path: " + getPath() << '\n';
+  }
 };
 
 #endif // MULTIMEDIA_H

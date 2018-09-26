@@ -5,11 +5,13 @@
 
 #include <iostream>
 #include "Multimedia.h"
+#include "Video.h"
+
 using namespace std;
 
 int main(int argc, const char *argv[]){
 
-  Multimedia *m = new Multimedia("nombre", "path");
-  m->show(cout);
+  Video * v = new Video("video1","/ruta",30);
+  v->show(cout);
   return 0;
 }
