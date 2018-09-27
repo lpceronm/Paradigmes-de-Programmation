@@ -29,6 +29,11 @@ public:
     s << "Latitude: " << getlatitude() << '\n';
     s << "Longitude: " << getlongitude() << '\n';
   }
+
+  void play(){
+    string command("open " + getPath() + " &");
+    system(command.c_str());
+  }
   
 };
 

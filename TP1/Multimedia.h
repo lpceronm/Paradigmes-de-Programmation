@@ -2,6 +2,9 @@
 #define MULTIMEDIA_H
 
 #include <iostream>
+#include <stdlib.h>
+#include <string>
+
 using namespace std;
 
 class Multimedia{
@@ -24,6 +27,8 @@ public:
   virtual string getPath() const { return path; }
 
   virtual void show(ostream &s) = 0 ;
+
+  virtual void play() = 0;
 
 };
 

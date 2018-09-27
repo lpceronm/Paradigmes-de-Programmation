@@ -18,9 +18,14 @@ public:
 
   void show(ostream &s){
     Multimedia::show(s);
-    s << getDuration() << '\n';
+    s << "Duration: " << getDuration() << '\n';
   }
-  
+
+  void play(){
+    string command("open " + getPath() + " &");
+    system(command.c_str());
+  }
+
 };
 
 #endif // VIDEO_H
