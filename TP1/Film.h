@@ -1,10 +1,12 @@
 #ifndef FILM_H
 #define FILM_H
 
-#include <QObject>
+#include "Video.h"
 
-class Film
-{
+class Film : public Video{
+private:
+  int * chapters = NULL;
+
 public:
   Film();
 };
