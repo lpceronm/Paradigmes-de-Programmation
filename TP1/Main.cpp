@@ -9,7 +9,7 @@ using namespace std;
 
 int main(int argc, const char *argv[]){
 
-  // Multimedia ** m = new  Multimedia * [10];
+  Multimedia ** m = new  Multimedia * [10];
 
   Video * v = new Video("video1","video.mp4",30);
   v->show(cout);
