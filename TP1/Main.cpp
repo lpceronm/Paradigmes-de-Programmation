@@ -8,6 +8,10 @@ using namespace std;
 
 int main(int argc, const char *argv[]){
 
+  // Multimedia m;
+
+  Multimedia ** m = new  Multimedia * [10];
+
   Video * v = new Video("video1","/ruta",30);
   v->show(cout);
 

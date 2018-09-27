@@ -23,8 +23,8 @@ public:
 
   virtual string getPath() const { return path; }
 
-  virtual void show(ostream &s) ;
-  
+  virtual void show(ostream &s) = 0 ;
+
 };
 
 #endif // MULTIMEDIA_H
