@@ -10,7 +10,7 @@ private:
 public:
   Video(string name, string path, int duration) : Multimedia(name, path), duration(duration) {}
 
-  ~Video();
+  // ~Video();
 
   void setDuration(int dur) { duration = dur; }
   
