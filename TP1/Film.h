@@ -3,8 +3,8 @@
 
 #include "Video.h"
 
-class Film : public Video
-{
+class Film : public Video{
+  
 private:
   int chapNumber = 0;
   int *chapters = NULL;

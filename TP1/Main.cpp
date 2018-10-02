@@ -4,16 +4,21 @@
 #include "Video.h"
 #include "Photo.h"
 #include "Film.h"
+#include "Groupe.h"
 
 
 using namespace std;
 
 int main(int argc, const char *argv[]){
 
-  int chap[] = {1,2,3,4};
+  Groupe list("name");
+  list.push_back(new Photo("Photo", "photo/test.png",1,1+2.0));
+  for (auto & it : list) it->show(cout);
 
-  Film * v = new Film("film","path",20,4,chap);
-  
+  // int chap[] = {1,2,3,4};
+  // Film * v = new Film("film","path",20,4,chap);
+  // const int * c = v->getChapters();
+  // v->show(cout);
   
   
   // Multimedia ** media = new  Multimedia * [10];
@@ -37,8 +42,7 @@ int main(int argc, const char *argv[]){
   //   cout << endl ;
   // }
   
-  const int * c = v->getChapters();
-  v->show(cout);
+  
 
 
   return 0;

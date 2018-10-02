@@ -4,6 +4,7 @@
 #include "Multimedia.h"
 
 class Photo : public Multimedia{
+
 private:
 
   double latitude = 0.0;
@@ -14,7 +15,7 @@ public:
   Photo(string name, string path, double latitude, double longitude) : 
     Multimedia(name, path), latitude(latitude),longitude(longitude) {}
 
-  ~Photo();
+  ~Photo() = default;
 
   void setlatitude(double lat) { latitude = lat; }
   
