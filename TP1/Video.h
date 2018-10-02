@@ -10,18 +10,18 @@ private:
 public:
   Video(string name, string path, int duration) : Multimedia(name, path), duration(duration) {}
 
-  ~Video();
+  virtual ~Video()  = default ;
 
-  void setDuration(int dur) { duration = dur; }
+  virtual void setDuration(int dur) { duration = dur; }
   
-  int getDuration() const { return duration; }
+  virtual int getDuration() const { return duration; }
 
-  void show(ostream &s){
+  virtual void show(ostream &s){
     Multimedia::show(s);
     s << "Duration: " << getDuration() << '\n';
   }
 
-  void play(){
+  virtual void play(){
     string command("open " + getPath() + " &");
     system(command.c_str());
   }

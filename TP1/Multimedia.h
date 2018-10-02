@@ -17,7 +17,8 @@ public:
 
   Multimedia(string name, string path) : name(name), path(path) {}
 
-  ~Multimedia();
+  virtual ~Multimedia() = default;
+
   virtual void setName(string name) { name = name; }
 
   virtual void setPath(string path) { path = path; }
