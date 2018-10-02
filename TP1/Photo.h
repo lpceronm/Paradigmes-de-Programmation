@@ -14,7 +14,7 @@ public:
   Photo(string name, string path, double latitude, double longitude) : 
     Multimedia(name, path), latitude(latitude),longitude(longitude) {}
 
-  // ~Photo();
+  ~Photo();
 
   void setlatitude(double lat) { latitude = lat; }
   

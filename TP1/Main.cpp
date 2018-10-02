@@ -12,7 +12,7 @@ int main(int argc, const char *argv[]){
 
   int chap[] = {1,2,3,4};
 
-  Film * v = new Film("film","path",20, chap,4);
+  Film * v = new Film("film","path",20,4,chap);
   
   
   
@@ -37,9 +37,9 @@ int main(int argc, const char *argv[]){
   //   cout << endl ;
   // }
   
-  int * c = v->getChapters();
+  const int * c = v->getChapters();
+  v->show(cout);
 
-  cout << "Len: "<<c[0];
 
   return 0;
 }
