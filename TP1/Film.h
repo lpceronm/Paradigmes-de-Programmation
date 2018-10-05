@@ -23,6 +23,7 @@ public:
 
   ~Film(){
     delete[] chapters;
+     cout<< "Films deleted "+ getName() + "\n";
   };
 
   const int *  getChapters() const{
