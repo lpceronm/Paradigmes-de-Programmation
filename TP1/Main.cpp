@@ -4,15 +4,15 @@
 #include "Video.h"
 #include "Photo.h"
 #include "Film.h"
-#include "Groupe.h"
+#include "Group.h"
 
 
 using namespace std;
 
 int main(int argc, const char *argv[]){
 
-  Groupe *list = new Groupe("name");
-  Groupe other_list("other list");
+  Group *list = new Group("name");
+  Group other_list("other list");
 
   Photo * p1 = new Photo("Photo", "photo/test.png",1,1+2.0);
   Photo * p2 = new Photo("Photo2", "photo/test.png",1,1+2.0);
@@ -27,8 +27,9 @@ int main(int argc, const char *argv[]){
   other_list.push_back(p1);
   other_list.push_back(p2);
   other_list.push_back(f);
+  other_list.push_back(v2);
 
-  // list->show(cout);
+  list->show(cout);
   other_list.show(cout);
 
   // for (auto & it : *list) it->show(cout);
@@ -40,7 +41,7 @@ int main(int argc, const char *argv[]){
   // cout << other_list.getName();
 
   delete list;
-  // p1->show(cout); 
+  p1->show(cout); 
   // const int * c = v->getChapters();
   // v->show(cout);
   
