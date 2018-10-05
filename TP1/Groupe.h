@@ -12,6 +12,14 @@ private:
 public:
   Groupe(string name): name(name) { }
 
+  string getName(){
+    return name;
+  }
+
+  void show(ostream& s){
+    for (iterator it= begin(); it != end(); ++it)
+     (*it)->show(s);
+  }
 };
 
 #endif // GROUPE_H
