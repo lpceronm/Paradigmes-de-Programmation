@@ -1,4 +1,5 @@
 #include <iostream>
+#include <memory>
 
 #include "Multimedia.h"
 #include "Video.h"
@@ -6,24 +7,28 @@
 #include "Film.h"
 #include "Group.h"
 
-
 using namespace std;
+using Smt = std::shared_ptr<Multimedia>;
 
-int main(int argc, const char *argv[]){
+int main(int argc, const char *argv[])
+{
 
   Group *list = new Group("name");
   Group other_list("other list");
 
-  Photo * p1 = new Photo("Photo", "photo/test.png",1,1+2.0);
-  Photo * p2 = new Photo("Photo2", "photo/test.png",1,1+2.0);
-  Video * v1 = new Video("Video", "video/test.png",11);
-  Video * v2 = new Video("Video2", "video/test.png",11);
-  int chap[] = {1,2,3,4};
-  Film * f = new Film("film","path",20,4,chap);
+  Smt p1(new Photo("Photo", "photo/test.png", 1, 1 + 2.0));
+  Smt p2(new Photo("Photo2", "photo/test.png", 1, 1 + 2.0));
+  Smt p3(new Photo("Photo3", "photo/test.png", 1, 1 + 2.0));
+
+  Smt v1(new Video("Video", "video/test.png", 11));
+  Smt v2(new Video("Video2", "video/test.png", 11));
+  int chap[] = {1, 2, 3, 4};
+  Smt f(new Film("film", "path", 20, 4, chap));
 
   list->push_back(p1);
   list->push_back(v1);
   list->push_back(f);
+  list->push_back(p3);
   other_list.push_back(p1);
   other_list.push_back(p2);
   other_list.push_back(f);
@@ -32,22 +37,22 @@ int main(int argc, const char *argv[]){
   list->show(cout);
   other_list.show(cout);
 
-  // for (auto & it : *list) it->show(cout);
-  // cout<< endl;
-  // cout << list->getName() << endl;
-
-  // for (auto & it : other_list) it->show(cout);
-  // cout<< endl;
-  // cout << other_list.getName();
+  for (auto &it : *list)
+    it->show(cout);
+  cout << endl;
 
   delete list;
-  p1->show(cout); 
+  cout << "****** DELETED LIST \n";
+
+  for (auto &it : other_list)
+    it->show(cout);
+  cout << endl;
+
   // const int * c = v->getChapters();
   // v->show(cout);
-  
-  
+
   // Multimedia ** media = new  Multimedia * [10];
-  
+
   // double d = 0.0;
   // for( int i = 0; i < 10; i++){
   //   if (i % 2 == 0) {
@@ -58,17 +63,13 @@ int main(int argc, const char *argv[]){
   //     media[i] = new Photo("Photo" + to_string(i), "photo/test.png",d,d+2.0);
   //   }
   // }
-  
-  
+
   // for(int  i = 0; i < 10 ; i++){
   //   Multimedia * m = media[i];
   //   m->show(cout);
   //   m->play();
   //   cout << endl ;
   // }
-  
-  
-
 
   return 0;
 }

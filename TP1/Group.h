@@ -2,8 +2,11 @@
 #define GROUP_H
 #include <list>
 #include "Multimedia.h"
+#include <memory>
 
-class Group : public list<Multimedia *>{
+using Smt = std::shared_ptr<Multimedia>;
+
+class Group : public list<Smt>{
 
 private:
   string name = "";
