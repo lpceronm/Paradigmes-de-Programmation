@@ -4,6 +4,7 @@
 #include "Multimedia.h"
 
 class Video : public Multimedia{
+  
 private:
   int duration = 0;
 

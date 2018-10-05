@@ -3,8 +3,8 @@
 
 #include "Video.h"
 
-class Film : public Video
-{
+class Film : public Video{
+  
 private:
   int chapNumber = 0;
   int *chapters = NULL;
@@ -38,7 +38,6 @@ public:
   void show(ostream &s){
     Video::show(s);
     s << "Chapters duration: " << "\n";
-    
     for(int i = 0; i < chapNumber; i++){
       s <<"\t Chapter" << i << ": " << chapters[i] << "\n";
     }

@@ -4,16 +4,46 @@
 #include "Video.h"
 #include "Photo.h"
 #include "Film.h"
+#include "Group.h"
 
 
 using namespace std;
 
 int main(int argc, const char *argv[]){
 
-  int chap[] = {1,2,3,4};
+  Group *list = new Group("name");
+  Group other_list("other list");
 
-  Film * v = new Film("film","path",20,4,chap);
-  
+  Photo * p1 = new Photo("Photo", "photo/test.png",1,1+2.0);
+  Photo * p2 = new Photo("Photo2", "photo/test.png",1,1+2.0);
+  Video * v1 = new Video("Video", "video/test.png",11);
+  Video * v2 = new Video("Video2", "video/test.png",11);
+  int chap[] = {1,2,3,4};
+  Film * f = new Film("film","path",20,4,chap);
+
+  list->push_back(p1);
+  list->push_back(v1);
+  list->push_back(f);
+  other_list.push_back(p1);
+  other_list.push_back(p2);
+  other_list.push_back(f);
+  other_list.push_back(v2);
+
+  list->show(cout);
+  other_list.show(cout);
+
+  // for (auto & it : *list) it->show(cout);
+  // cout<< endl;
+  // cout << list->getName() << endl;
+
+  // for (auto & it : other_list) it->show(cout);
+  // cout<< endl;
+  // cout << other_list.getName();
+
+  delete list;
+  p1->show(cout); 
+  // const int * c = v->getChapters();
+  // v->show(cout);
   
   
   // Multimedia ** media = new  Multimedia * [10];
@@ -37,8 +67,7 @@ int main(int argc, const char *argv[]){
   //   cout << endl ;
   // }
   
-  const int * c = v->getChapters();
-  v->show(cout);
+  
 
 
   return 0;
