@@ -15,7 +15,7 @@ public:
   Photo(string name, string path, double latitude, double longitude) : 
     Multimedia(name, path), latitude(latitude),longitude(longitude) {}
 
-  ~Photo(){ cout<< "Photos deleted \n";}
+  ~Photo(){ cout<< "Photos deleted "+ getName() + "\n";}
 
   void setlatitude(double lat) { latitude = lat; }
   

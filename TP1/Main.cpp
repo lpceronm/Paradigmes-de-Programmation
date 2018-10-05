@@ -43,6 +43,7 @@ int main(int argc, const char *argv[])
 
   delete list;
   cout << "****** DELETED LIST \n";
+  p3.reset();
 
   for (auto &it : other_list)
     it->show(cout);
