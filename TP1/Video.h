@@ -11,7 +11,7 @@ private:
 public:
   Video(string name, string path, int duration) : Multimedia(name, path), duration(duration) {}
 
-  virtual ~Video() { cout<< "Videos deleted \n";}
+  virtual ~Video() { cout<< "Videos deleted "+ getName() + "\n";}
 
   virtual void setDuration(int dur) { duration = dur; }
   
