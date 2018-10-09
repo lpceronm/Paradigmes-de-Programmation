@@ -14,7 +14,7 @@ PROG = multimedia
 #
 # Fichiers sources (NE PAS METTRE les .h ni les .o seulement les .cpp)
 #
-SOURCES = Multimedia.cpp Main.cpp Video.cpp
+SOURCES = Multimedia.cpp Main.cpp Photo.cpp Video.cpp 
 
 #
 # Fichiers objets (ne pas modifier sauf si l'extension n'est pas .cpp)

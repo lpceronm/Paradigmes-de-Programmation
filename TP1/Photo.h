@@ -25,16 +25,9 @@ public:
   
   double getlongitude() const { return longitude; }
 
-  void show(ostream &s){
-    Multimedia::show(s);
-    s << "Latitude: " << getlatitude() << '\n';
-    s << "Longitude: " << getlongitude() << '\n';
-  }
+  void show(ostream &s);
 
-  void play(){
-    string command("open " + getPath() + " &");
-    system(command.c_str());
-  }
+  void play();
   
 };
 
