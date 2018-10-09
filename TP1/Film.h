@@ -26,9 +26,7 @@ public:
      cout<< "Films deleted "+ getName() + "\n";
   };
 
-  const int *  getChapters() const{
-    return chapters;
-  }
+  const int *  getChapters() const{ return chapters;}
 
   void setChapters(int *chapter, int size){
     chapNumber = size;
@@ -36,14 +34,7 @@ public:
     copyChapters(size, chapter);
   }
 
-  void show(ostream &s){
-    Video::show(s);
-    s << "Chapters duration: " << "\n";
-    for(int i = 0; i < chapNumber; i++){
-      s <<"\t Chapter" << i << ": " << chapters[i] << "\n";
-    }
-     
-  }
+  void show(ostream &s);
 
 };
 
