@@ -16,7 +16,7 @@ private:
   }
 
 public:
-  Film(string name, string path, int duration, int size, int *chapter) :
+  Film(const string& name, const string& path, int duration, int size, int *chapter) :
     Video(name, path, duration), chapNumber(size),chapters(new int[size]){
       copyChapters(size, chapter);
   }

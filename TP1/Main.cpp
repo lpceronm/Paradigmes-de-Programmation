@@ -8,10 +8,8 @@
 #include "Group.h"
 
 using namespace std;
-using Smt = std::shared_ptr<Multimedia>;
 
-int main(int argc, const char *argv[])
-{
+int main(int argc, const char *argv[]){
 
   Group *list = new Group("name");
   Group other_list("other list");

@@ -17,13 +17,13 @@ private:
 public:
   Multimedia();
 
-  Multimedia(string name, string path) : name(name), path(path) {}
+  Multimedia(const string& name, const string& path) : name(name), path(path) {}
 
   virtual ~Multimedia() = default;
 
-  virtual void setName(string name) { name = name; }
+  virtual void setName(const string& set_nam) { name = set_nam; }
 
-  virtual void setPath(string path) { path = path; }
+  virtual void setPath(const string& set_path) { path = set_path; }
 
   virtual string getName() const { return name; }
 

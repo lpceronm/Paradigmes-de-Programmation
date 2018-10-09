@@ -12,7 +12,7 @@ private:
 
 public:
 
-  Photo(string name, string path, double latitude, double longitude) : 
+  Photo(const string& name, const string& path, double latitude, double longitude) : 
     Multimedia(name, path), latitude(latitude),longitude(longitude) {}
 
   ~Photo(){ cout<< "Photos deleted "+ getName() + "\n";}

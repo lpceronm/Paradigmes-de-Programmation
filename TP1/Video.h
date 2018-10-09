@@ -9,7 +9,7 @@ private:
   int duration = 0;
 
 public:
-  Video(string name, string path, int duration) : Multimedia(name, path), duration(duration) {}
+  Video(const string& name, const string& path, int duration) : Multimedia(name, path), duration(duration) {}
 
   virtual ~Video() { cout<< "Videos deleted "+ getName() + "\n";}
 
