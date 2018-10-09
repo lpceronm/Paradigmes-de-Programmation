@@ -8,10 +8,8 @@
 #include "Group.h"
 
 using namespace std;
-using Smt = std::shared_ptr<Multimedia>;
 
-int main(int argc, const char *argv[])
-{
+int main(int argc, const char *argv[]){
 
   Group *list = new Group("name");
   Group other_list("other list");
@@ -22,8 +20,10 @@ int main(int argc, const char *argv[])
 
   Smt v1(new Video("Video", "video/test.png", 11));
   Smt v2(new Video("Video2", "video/test.png", 11));
-  int chap[] = {1, 2, 3, 4};
-  Smt f(new Film("film", "path", 20, 4, chap));
+  int *chap = new int[12]{1, 2, 3, 4,5,6,7,8,9,10,11,12};
+  Smt f(new Film("film", "path", 20, 12, chap));
+
+  delete[] chap;
 
   list->push_back(p1);
   list->push_back(v1);

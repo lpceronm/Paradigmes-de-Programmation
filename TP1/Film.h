@@ -7,43 +7,23 @@ class Film : public Video{
   
 private:
   int chapNumber = 0;
-  int *chapters = NULL;
+  int *chapters = nullptr;
 
-  void copyChapters(int size, int *chap){
-    for (int i = 0; i < size; i++){
-      chapters[i] = chap[i];
-    }
-  }
+  // void copyChapters(int size, const int *chap);
 
 public:
-  Film(string name, string path, int duration, int size, int *chapter) :
-    Video(name, path, duration), chapNumber(size),chapters(new int[size]){
-      copyChapters(size, chapter);
-  }
 
-  ~Film(){
-    delete[] chapters;
-     cout<< "Films deleted "+ getName() + "\n";
-  };
+  Film(const string& name, const string& path, int duration, int size, const int *chapter);
 
-  const int *  getChapters() const{
-    return chapters;
-  }
+  ~Film();
 
-  void setChapters(int *chapter, int size){
-    chapNumber = size;
-    chapters = new int[size];
-    copyChapters(size, chapter);
-  }
+  void setChapters(const int *chapter, int size);
+  
+  const int *  getChapters() const;
 
-  void show(ostream &s){
-    Video::show(s);
-    s << "Chapters duration: " << "\n";
-    for(int i = 0; i < chapNumber; i++){
-      s <<"\t Chapter" << i << ": " << chapters[i] << "\n";
-    }
-     
-  }
+  const int  getChapNumber();
+
+  void show(ostream &s);
 
 };
 

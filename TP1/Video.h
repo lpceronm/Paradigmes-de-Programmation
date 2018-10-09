@@ -9,23 +9,17 @@ private:
   int duration = 0;
 
 public:
-  Video(string name, string path, int duration) : Multimedia(name, path), duration(duration) {}
+  Video(const string& name, const string& path, int duration);
 
-  virtual ~Video() { cout<< "Videos deleted "+ getName() + "\n";}
+  virtual ~Video();
 
-  virtual void setDuration(int dur) { duration = dur; }
+  virtual void setDuration(int dur);
   
-  virtual int getDuration() const { return duration; }
+  virtual int getDuration() const;
 
-  virtual void show(ostream &s){
-    Multimedia::show(s);
-    s << "Duration: " << getDuration() << '\n';
-  }
+  virtual void show(ostream &s) ;
 
-  virtual void play(){
-    string command("open " + getPath() + " &");
-    system(command.c_str());
-  }
+  virtual void play() ;
 
 };
 

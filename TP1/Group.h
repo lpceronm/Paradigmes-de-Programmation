@@ -12,11 +12,10 @@ private:
   string name = "";
 
 public:
-  Group(string name) : name(name) {}
+  Group(const string& name) : name(name) {}
 
-  string getName(){
-    return name;
-  }
+  string getName()const{ return name; }
+  void setName( const string& set_name) {name = set_name; }
 
   void show(ostream &s){
     s << "Group name: " + name + "\n";
