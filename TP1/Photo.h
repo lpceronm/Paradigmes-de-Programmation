@@ -12,18 +12,17 @@ private:
 
 public:
 
-  Photo(const string& name, const string& path, double latitude, double longitude) : 
-    Multimedia(name, path), latitude(latitude),longitude(longitude) {}
+  Photo(const string& name, const string& path, double latitude, double longitude); 
 
   ~Photo();
 
-  void setlatitude(double lat) { latitude = lat; }
+  void setlatitude(double lat);
   
-  double getlatitude() const { return latitude; }
+  double getlatitude() const;
 
-  void setlongitude(double lng) { longitude = lng; }
+  void setlongitude(double lng);
   
-  double getlongitude() const { return longitude; }
+  double getlongitude() const;
 
   void show(ostream &s);
 

@@ -9,13 +9,13 @@ private:
   int duration = 0;
 
 public:
-  Video(const string& name, const string& path, int duration) : Multimedia(name, path), duration(duration) {}
+  Video(const string& name, const string& path, int duration);
 
   virtual ~Video();
 
-  virtual void setDuration(int dur) { duration = dur; }
+  virtual void setDuration(int dur);
   
-  virtual int getDuration() const { return duration; }
+  virtual int getDuration() const;
 
   virtual void show(ostream &s) ;
 

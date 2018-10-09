@@ -9,7 +9,7 @@ private:
   int chapNumber = 0;
   int *chapters = nullptr;
 
-  void copyChapters(int size, const int *chap);
+  // void copyChapters(int size, const int *chap);
 
 public:
 
