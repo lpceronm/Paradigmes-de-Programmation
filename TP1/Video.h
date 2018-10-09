@@ -17,15 +17,9 @@ public:
   
   virtual int getDuration() const { return duration; }
 
-  virtual void show(ostream &s){
-    Multimedia::show(s);
-    s << "Duration: " << getDuration() << '\n';
-  }
+  virtual void show(ostream &s) ;
 
-  virtual void play(){
-    string command("open " + getPath() + " &");
-    system(command.c_str());
-  }
+  virtual void play() ;
 
 };
 
