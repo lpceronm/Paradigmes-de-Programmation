@@ -16,15 +16,13 @@ private:
   }
 
 public:
+
   Film(const string& name, const string& path, int duration, int size, int *chapter) :
     Video(name, path, duration), chapNumber(size),chapters(new int[size]){
       copyChapters(size, chapter);
   }
 
-  ~Film(){
-    delete[] chapters;
-     cout<< "Films deleted "+ getName() + "\n";
-  };
+  ~Film();
 
   const int *  getChapters() const{ return chapters;}
 

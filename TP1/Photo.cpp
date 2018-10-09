@@ -2,6 +2,8 @@
 #include "Multimedia.h"
 
 
+Photo::~Photo(){ cout<< "Photos deleted "+ getName() + "\n";}
+
 void Photo::show(ostream &s){
    Multimedia::show(s);
     s << "Latitude: " << getlatitude() << '\n';

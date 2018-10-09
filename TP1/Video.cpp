@@ -1,6 +1,7 @@
 #include "Video.h"
 #include "Multimedia.h"
 
+Video::~Video() { cout<< "Videos deleted "+ getName() + "\n";}
 
 void Video::show(ostream &s){
    Multimedia::show(s);
