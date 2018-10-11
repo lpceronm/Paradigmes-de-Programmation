@@ -7,5 +7,7 @@ Multimedia.cpp
 Multimedia.h
 Photo.cpp
 Photo.h
+Store.cpp
+Store.h
 Video.cpp
 Video.h

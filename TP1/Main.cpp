@@ -6,10 +6,16 @@
 #include "Photo.h"
 #include "Film.h"
 #include "Group.h"
+#include "Store.h"
+
 
 using namespace std;
+using Sst = std::shared_ptr<Store>;
+
 
 int main(int argc, const char *argv[]){
+
+  Sst store(new Store());
 
   Group *list = new Group("name");
   Group other_list("other list");
@@ -23,31 +29,54 @@ int main(int argc, const char *argv[]){
   int *chap = new int[12]{1, 2, 3, 4,5,6,7,8,9,10,11,12};
   Smt f(new Film("film", "path", 20, 12, chap));
 
+  
+  Smt p = store->createPhoto("PhotoMap", "photo/test.png", 1, 1 + 2.0);
+  
+  Sgr gr  = store->createGroup("groupname");
+  gr->push_back(p1);
+  gr->push_back(p);
+
+ 
+  gr->show(cout);
+
+  // store->showElement("Name", cout);
+  // store->showElement("groupname", cout);
+  // store->showElement("PhotoMap", cout);
+  // store->playElement("Photo");
+  // store->playElement("Name");
+
+
+
+
   delete[] chap;
 
   list->push_back(p1);
   list->push_back(v1);
-  list->push_back(f);
+  // list->push_back(f);
   list->push_back(p3);
-  other_list.push_back(p1);
-  other_list.push_back(p2);
-  other_list.push_back(f);
-  other_list.push_back(v2);
+  // other_list.push_back(p1);
+  // other_list.push_back(p2);
+  // other_list.push_back(f);
+  // other_list.push_back(v2);
 
-  list->show(cout);
-  other_list.show(cout);
+  // list->show(cout);
+  // other_list.show(cout);
 
-  for (auto &it : *list)
-    it->show(cout);
-  cout << endl;
+  cout << "****** DELETED Map group \n";
 
-  delete list;
-  cout << "****** DELETED LIST \n";
-  p3.reset();
+  store->deleteGroup("groupname");
 
-  for (auto &it : other_list)
-    it->show(cout);
-  cout << endl;
+  // for (auto &it : *list)
+  //   it->show(cout);
+  // cout << endl;
+
+  // delete list;
+  // cout << "****** DELETED LIST \n";
+  // p3.reset();
+
+  // for (auto &it : other_list)
+  //   it->show(cout);
+  // cout << endl;
 
   // const int * c = v->getChapters();
   // v->show(cout);

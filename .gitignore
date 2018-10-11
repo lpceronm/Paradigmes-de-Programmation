@@ -1,5 +1,7 @@
 ### VisualStudioCode ###
+.vscode/*
 TP1/.vscode/*
+
 
 # Compiled Object files
 *.slo
