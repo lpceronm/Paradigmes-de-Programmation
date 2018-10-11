@@ -21,7 +21,15 @@ private:
 public:
   Store();
 
-  Smt createPhoto(const string& storeName,const string& name, const string& path, double latitude, double longitude);
+  Smt createPhoto(const string& storeName,const string& name, 
+    const string& path, double latitude, double longitude);
+
+  Smt createVideo(const string& storeName,const string& name, 
+    const string& path, double duration);
+  
+  Smt createFilm(const string& storeName,const string& name, 
+    const string& path, int duration, int size, const int *chapter);    
+  
 
 
 };
