@@ -30,23 +30,26 @@ int main(int argc, const char *argv[]){
   Smt f(new Film("film", "path", 20, 12, chap));
 
   
-  Smt p = store->createPhoto("First","Photo", "photo/test.png", 1, 1 + 2.0);
+  Smt p = store->createPhoto("Photo", "photo/test.png", 1, 1 + 2.0);
   
-  Sgr gr  = store->createGroup("group1","groupname");
+  Sgr gr  = store->createGroup("groupname");
   gr->push_back(p1);
  
   gr->show(cout);
 
+  store->showElement("Name", cout);
+  store->showElement("groupname", cout);
+
   delete[] chap;
 
-  list->push_back(p1);
-  list->push_back(v1);
-  list->push_back(f);
-  list->push_back(p3);
-  other_list.push_back(p1);
-  other_list.push_back(p2);
-  other_list.push_back(f);
-  other_list.push_back(v2);
+  // list->push_back(p1);
+  // list->push_back(v1);
+  // list->push_back(f);
+  // list->push_back(p3);
+  // other_list.push_back(p1);
+  // other_list.push_back(p2);
+  // other_list.push_back(f);
+  // other_list.push_back(v2);
 
   // list->show(cout);
   // other_list.show(cout);

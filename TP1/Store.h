@@ -19,22 +19,24 @@ typedef std::map<string, Sgr> Folder;
 class Store{
 
 private:
-  File mediaFile;
+  File mediaFolder;
   Folder groupFolder;
 
 public:
   Store();
 
-  Smt createPhoto(const string& storeName, const string& name, 
+  Smt createPhoto(const string& name, 
     const string& path, double latitude, double longitude);
 
-  Smt createVideo(const string& storeName, const string& name, 
+  Smt createVideo(const string& name, 
     const string& path, double duration);
   
-  Smt createFilm(const string& storeName, const string& name, 
+  Smt createFilm(const string& name, 
     const string& path, int duration, int size, const int *chapter);    
   
-  Sgr createGroup(const string& storeName, const string& name);
+  Sgr createGroup(const string& name);
+
+  void showElement(const string& name, ostream& s );
 
 };
 
