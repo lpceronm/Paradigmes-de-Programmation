@@ -6,10 +6,14 @@
 #include "Photo.h"
 #include "Film.h"
 #include "Group.h"
+#include "Store.h"
+
 
 using namespace std;
 
 int main(int argc, const char *argv[]){
+
+  Store *store = new Store();
 
   Group *list = new Group("name");
   Group other_list("other list");
@@ -23,6 +27,10 @@ int main(int argc, const char *argv[]){
   int *chap = new int[12]{1, 2, 3, 4,5,6,7,8,9,10,11,12};
   Smt f(new Film("film", "path", 20, 12, chap));
 
+  
+  Smt p = store->createPhoto("First","Photo", "photo/test.png", 1, 1 + 2.0);
+  
+
   delete[] chap;
 
   list->push_back(p1);
@@ -34,20 +42,20 @@ int main(int argc, const char *argv[]){
   other_list.push_back(f);
   other_list.push_back(v2);
 
-  list->show(cout);
-  other_list.show(cout);
+  // list->show(cout);
+  // other_list.show(cout);
 
-  for (auto &it : *list)
-    it->show(cout);
-  cout << endl;
+  // for (auto &it : *list)
+  //   it->show(cout);
+  // cout << endl;
 
-  delete list;
-  cout << "****** DELETED LIST \n";
-  p3.reset();
+  // delete list;
+  // cout << "****** DELETED LIST \n";
+  // p3.reset();
 
-  for (auto &it : other_list)
-    it->show(cout);
-  cout << endl;
+  // for (auto &it : other_list)
+  //   it->show(cout);
+  // cout << endl;
 
   // const int * c = v->getChapters();
   // v->show(cout);
