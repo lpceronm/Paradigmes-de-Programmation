@@ -10,10 +10,12 @@
 
 
 using namespace std;
+using Sst = std::shared_ptr<Store>;
+
 
 int main(int argc, const char *argv[]){
 
-  Store *store = new Store();
+  Sst store(new Store());
 
   Group *list = new Group("name");
   Group other_list("other list");
@@ -30,6 +32,10 @@ int main(int argc, const char *argv[]){
   
   Smt p = store->createPhoto("First","Photo", "photo/test.png", 1, 1 + 2.0);
   
+  Sgr gr  = store->createGroup("group1","groupname");
+  gr->push_back(p1);
+ 
+  gr->show(cout);
 
   delete[] chap;
 
@@ -49,7 +55,7 @@ int main(int argc, const char *argv[]){
   //   it->show(cout);
   // cout << endl;
 
-  // delete list;
+  delete list;
   // cout << "****** DELETED LIST \n";
   // p3.reset();
 

@@ -9,8 +9,12 @@
 #include "Film.h"
 #include "Group.h"
 
+using Sgr = std::shared_ptr<Group>;
+
 typedef std::map<string, Smt> File; 
-typedef std::map<string, Group> Folder; 
+typedef std::map<string, Sgr> Folder; 
+
+
 
 class Store{
 
@@ -21,16 +25,16 @@ private:
 public:
   Store();
 
-  Smt createPhoto(const string& storeName,const string& name, 
+  Smt createPhoto(const string& storeName, const string& name, 
     const string& path, double latitude, double longitude);
 
-  Smt createVideo(const string& storeName,const string& name, 
+  Smt createVideo(const string& storeName, const string& name, 
     const string& path, double duration);
   
-  Smt createFilm(const string& storeName,const string& name, 
+  Smt createFilm(const string& storeName, const string& name, 
     const string& path, int duration, int size, const int *chapter);    
   
-
+  Sgr createGroup(const string& storeName, const string& name);
 
 };
 

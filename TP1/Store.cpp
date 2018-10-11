@@ -23,3 +23,10 @@ Smt Store::createFilm(const string& storeName,const string& name,
   mediaFile[storeName] = f;
   return f; 
 }
+
+Sgr Store::createGroup(const string& storeName, const string& name){
+  Sgr gr(new Group(name));
+  groupFolder[storeName] = gr;
+  return gr;
+
+}
