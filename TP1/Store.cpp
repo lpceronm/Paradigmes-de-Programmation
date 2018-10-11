@@ -2,6 +2,9 @@
 
 
 Store::Store(){}
+Store::~Store(){ 
+  cout<< "Deleted Store \n";
+}
 
 Smt Store::createPhoto( const string& name, const string& path, 
 double latitude, double longitude){
@@ -41,5 +44,32 @@ void Store::showElement(const string& name, ostream& s ){
     }else{
       s << "Multimedia element or group not found" << endl;
     }
+  }
+}
+
+void Store::playElement(const string& name){
+  auto mult = mediaFolder.find(name);
+  if (mult != mediaFolder.end()){
+      mult->second->play();
+  }else{
+      cout << "Multimedia element not found" << endl;
+  }
+}
+
+void Store::deleteElement(const string& name){
+  auto mult = mediaFolder.find(name);
+  if (mult != mediaFolder.end()){
+      mediaFolder.erase(mult);
+  }else{
+      cout << "Multimedia element not found" << endl;
+  }
+
+}
+void Store::deleteGroup(const string& name){
+  auto group = groupFolder.find(name); 
+  if (group != groupFolder.end()) {
+    groupFolder.erase(group);
+  }else{
+    cout << "Group not found" << endl;
   }
 }

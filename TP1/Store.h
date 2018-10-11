@@ -25,6 +25,8 @@ private:
 public:
   Store();
 
+  ~Store();
+  
   Smt createPhoto(const string& name, 
     const string& path, double latitude, double longitude);
 
@@ -37,6 +39,12 @@ public:
   Sgr createGroup(const string& name);
 
   void showElement(const string& name, ostream& s );
+
+  void playElement(const string& name);
+
+  void deleteElement(const string& name);
+
+  void deleteGroup(const string& name);
 
 };
 

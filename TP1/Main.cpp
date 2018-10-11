@@ -30,22 +30,30 @@ int main(int argc, const char *argv[]){
   Smt f(new Film("film", "path", 20, 12, chap));
 
   
-  Smt p = store->createPhoto("Photo", "photo/test.png", 1, 1 + 2.0);
+  Smt p = store->createPhoto("PhotoMap", "photo/test.png", 1, 1 + 2.0);
   
   Sgr gr  = store->createGroup("groupname");
   gr->push_back(p1);
+  gr->push_back(p);
+
  
   gr->show(cout);
 
-  store->showElement("Name", cout);
-  store->showElement("groupname", cout);
+  // store->showElement("Name", cout);
+  // store->showElement("groupname", cout);
+  // store->showElement("PhotoMap", cout);
+  // store->playElement("Photo");
+  // store->playElement("Name");
+
+
+
 
   delete[] chap;
 
-  // list->push_back(p1);
-  // list->push_back(v1);
+  list->push_back(p1);
+  list->push_back(v1);
   // list->push_back(f);
-  // list->push_back(p3);
+  list->push_back(p3);
   // other_list.push_back(p1);
   // other_list.push_back(p2);
   // other_list.push_back(f);
@@ -54,11 +62,15 @@ int main(int argc, const char *argv[]){
   // list->show(cout);
   // other_list.show(cout);
 
+  cout << "****** DELETED Map group \n";
+
+  store->deleteGroup("groupname");
+
   // for (auto &it : *list)
   //   it->show(cout);
   // cout << endl;
 
-  delete list;
+  // delete list;
   // cout << "****** DELETED LIST \n";
   // p3.reset();
 
