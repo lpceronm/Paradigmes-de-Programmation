@@ -1,4 +1,5 @@
 Film.o: Film.cpp Film.h Video.h Multimedia.h
+Group.o: Group.cpp Multimedia.h Group.h
 Multimedia.o: Multimedia.cpp Multimedia.h
 Main.o: Main.cpp Multimedia.h Video.h Photo.h Film.h Group.h
 Photo.o: Photo.cpp Photo.h Multimedia.h

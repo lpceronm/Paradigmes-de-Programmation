@@ -17,17 +17,17 @@ private:
 public:
   Multimedia();
 
-  Multimedia(const string& name, const string& path) : name(name), path(path) {}
+  Multimedia(const string& name, const string& path);
 
   virtual ~Multimedia() = default;
 
-  virtual void setName(const string& set_nam) { name = set_nam; }
+  virtual void setName(const string& set_nam);
 
-  virtual void setPath(const string& set_path) { path = set_path; }
+  virtual void setPath(const string& set_path);
 
-  virtual string getName() const { return name; }
+  virtual string getName() const;
 
-  virtual string getPath() const { return path; }
+  virtual string getPath() const; 
 
   virtual void show(ostream &s) = 0 ;
 

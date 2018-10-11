@@ -1,7 +1,8 @@
 #include "Film.h"
 #include "Video.h"
 
-Film::Film(const string &name, const string &path, int duration, int size, const int *chapter) : Video(name, path, duration), chapNumber(size), chapters(new int[size]){
+Film::Film(const string &name, const string &path, int duration, int size, const int *chapter) : 
+  Video(name, path, duration), chapNumber(size), chapters(new int[size]){
   // copyChapters(size, chapter);
   memcpy(chapters, chapter, size * (sizeof(chapter)));
 }

@@ -1,8 +1,9 @@
 #ifndef GROUP_H
 #define GROUP_H
 #include <list>
-#include "Multimedia.h"
 #include <memory>
+#include "Multimedia.h"
+
 
 using Smt = std::shared_ptr<Multimedia>;
 
@@ -12,17 +13,13 @@ private:
   string name = "";
 
 public:
-  Group(const string& name) : name(name) {}
+  Group(const string& name);
 
-  string getName()const{ return name; }
-  void setName( const string& set_name) {name = set_name; }
+  string getName() const;
 
-  void show(ostream &s){
-    s << "Group name: " + name + "\n";
-    for (iterator it = begin(); it != end(); ++it)
-      (*it)->show(s);
-    s << endl;
-  }
+  void setName( const string& set_name);
+
+  void show(ostream &s);
 };
 
 #endif // GROUP_H
