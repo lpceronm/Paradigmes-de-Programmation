@@ -2,6 +2,9 @@
 #include "Group.h"
 
 Group::Group(const string& name) : name(name) {}
+Group::~Group(){
+  cout<< "Deleted group: " + name + "\n" ;
+}
 
 string Group::getName()const{ return name; }
 

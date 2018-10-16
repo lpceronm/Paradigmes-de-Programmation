@@ -15,6 +15,8 @@ private:
 public:
   Group(const string& name);
 
+  ~Group();
+
   string getName() const;
 
   void setName( const string& set_name);

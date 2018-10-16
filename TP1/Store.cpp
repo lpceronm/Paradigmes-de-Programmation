@@ -59,6 +59,7 @@ void Store::playElement(const string& name){
 void Store::deleteElement(const string& name){
   auto mult = mediaFolder.find(name);
   if (mult != mediaFolder.end()){
+      mult->second.reset();
       mediaFolder.erase(mult);
   }else{
       cout << "Multimedia element not found" << endl;
@@ -68,6 +69,7 @@ void Store::deleteElement(const string& name){
 void Store::deleteGroup(const string& name){
   auto group = groupFolder.find(name); 
   if (group != groupFolder.end()) {
+    group->second.reset();
     groupFolder.erase(group);
   }else{
     cout << "Group not found" << endl;
