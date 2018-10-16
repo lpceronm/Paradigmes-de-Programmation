@@ -1,6 +1,8 @@
 ### VisualStudioCode ###
 .vscode/*
 TP1/.vscode/*
+TP1/cliserv/*
+
 
 
 # Compiled Object files

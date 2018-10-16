@@ -2,9 +2,6 @@
 // #define TEST_VERSION
 #define SERVER_VERSION
 
-#include <iostream>
-#include <memory>
-
 #include "TestMain.h"
 #include "ServerMain.h"
 
