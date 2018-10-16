@@ -7,13 +7,17 @@ class Film : public Video{
   
 private:
   int chapNumber = 0;
-  int *chapters = nullptr;
+  int *chapters =  NULL;
 
-  // void copyChapters(int size, const int *chap);
+  void copyChapters(int size, const int *chap);
 
 public:
 
   Film(const string& name, const string& path, int duration, int size, const int *chapter);
+
+  Film( const Film& );
+
+  Film& operator=(const Film&);
 
   ~Film();
 
