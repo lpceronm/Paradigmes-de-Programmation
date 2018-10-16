@@ -14,17 +14,16 @@ Film::Film(const Film& from): Video(from){
 }
 
 Film& Film:: operator=(const Film& from) {
-  // Video::operator=(from);
+  Video::operator=(from);
   chapNumber = from.chapNumber;
-  copyChapters(from.chapNumber, from.chapters);
-  // if (from.chapters && chapters) {
-  //   chapters = new int[from.chapNumber];
-  //   copyChapters(from.chapNumber, from.chapters);
-  // }else{
-  //   delete[] chapters;
-  //   chapters = new int[from.chapNumber];
-  //   if (from.chapters)  copyChapters(from.chapNumber, from.chapters);
-  // }
+  if (from.chapters && chapters) {
+    chapters = new int[from.chapNumber];
+    copyChapters(from.chapNumber, from.chapters);
+  }else{
+    delete[] chapters;
+    chapters = new int[from.chapNumber];
+    if (from.chapters)  copyChapters(from.chapNumber, from.chapters);
+  }
   return *this;
 }
 
@@ -50,8 +49,7 @@ void Film::show(ostream &s){
   Video::show(s);
   s << "Chapters duration: "
     << "\n";
-  for (int i = 0; i < chapNumber; i++)
-  {
+  for (int i = 0; i < chapNumber; i++){
     s << "\t Chapter" << i << ": " << chapters[i] << "\n";
   }
 }
