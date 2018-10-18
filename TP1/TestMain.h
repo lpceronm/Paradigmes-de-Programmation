@@ -69,7 +69,7 @@ void testMain(){
     }
     infile.close();
   }
-
+  rList->pop_back();
   rList->show(cout);
   
 
