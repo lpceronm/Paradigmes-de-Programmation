@@ -11,6 +11,7 @@
 #include "Film.h"
 #include "Group.h"
 #include "Store.h"
+#include "Factory.h"
 
 using namespace std;
 using Sst = std::shared_ptr<Store>;
@@ -43,7 +44,7 @@ void testMain(){
   Smt p3(new Photo("Photo3", "photo/test.png", 1.0, 1.3 + 2.0));
 
 
-  Smt v1(new Video("Video", "video/test.png", 11));
+  Smt v1(new Video("vidi", "video/test.png", 11));
   Smt v2(new Video("Video2", "video/test.png", 11));
   int *chap = new int[12]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
   Smt f(new Film("film", "path", 20, 12, chap));
@@ -53,7 +54,7 @@ void testMain(){
   myfile.open ("example.txt");
 
   
-  f->write(myfile);
+  v1->write(myfile);
   myfile.close();
 
   Group *rList = new Group("inList");
@@ -63,9 +64,8 @@ void testMain(){
     while(infile){
       string clss;
       getline(infile,clss);
-      Smt inv(new Film());
-      inv->read(infile);
-      rList->push_back(inv);
+      Smt inv(Creational::createMult(clss));
+      if (inv) inv->read(infile); rList->push_back(inv);
     }
     infile.close();
   }
