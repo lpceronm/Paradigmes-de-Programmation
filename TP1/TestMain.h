@@ -11,7 +11,6 @@
 #include "Film.h"
 #include "Group.h"
 #include "Store.h"
-#include "Factory.h"
 
 using namespace std;
 using Sst = std::shared_ptr<Store>;
@@ -73,20 +72,9 @@ void testMain(){
 
   Sst store1(new Store());
 
-  ifstream infile("example.txt");
-  
-  if (infile) {
-    while(infile){
-      string clss;
-      getline(infile,clss);
-      Smt inv = store1->createMult(clss,infile);
-      if (inv) inv->read(infile);
-    }
-    infile.close();
-  }
-   
-   store1->showElement("film",cout);
-   store1->showElement("film2",cout);
+  i = store1->load("example.txt"); 
+  store1->showElement("film",cout);
+  store1->showElement("film2",cout);
   
   
 

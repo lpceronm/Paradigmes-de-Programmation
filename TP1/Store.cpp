@@ -118,8 +118,19 @@ bool Store::save(const string &outputName){
   }
 }
 
-bool Store::load(const string &outputName){ 
-  
-  return true; 
-
+bool Store::load(const string &inputName){ 
+  ifstream inF(inputName);
+  if (!inF){
+    cerr << "Can't open file \n";
+    return false;
+  }else{
+    while(inF){
+      string clss;
+      getline(inF,clss);
+      Smt inv = createMult(clss,inF);
+      if (inv) inv->read(inF);
+    }
+    inF.close();
+    return true; 
+  }
 }
