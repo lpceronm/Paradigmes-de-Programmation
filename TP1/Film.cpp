@@ -76,11 +76,6 @@ void Film::read(istream &is){
   }
 }
 
-
-
-
-
-
 void Film::copyChapters(int size, const int *chap){
   for (int i = 0; i < size; i++){
     chapters[i] = chap[i];

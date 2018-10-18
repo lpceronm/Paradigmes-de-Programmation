@@ -8,28 +8,42 @@ Store::~Store(){
 
 Smt Store::createPhoto( const string& name, const string& path, 
 double latitude, double longitude){
-  Smt p(new Photo(name,path,latitude,longitude));
-  mediaFolder[name] = p;
-  return p;
+  mediaFolder[name] = Smt(new Photo(name,path,latitude,longitude));
+  return mediaFolder[name];
+}
+
+Smt Store::createPhoto(const string& name){
+  mediaFolder[name] = Smt(new Photo());
+  mediaFolder[name]->setName(name);
+  return mediaFolder[name];
 }
 
 Smt Store::createVideo(const string& name, const string& path, double duration){
-  Smt v(new Video(name,path,duration));
-  mediaFolder[name] = v;
-  return v; 
+  mediaFolder[name] = Smt(new Video(name,path,duration));;
+  return mediaFolder[name]; 
+}
+
+Smt Store::createVideo(const string& name){
+  mediaFolder[name] = Smt(new Video());
+  mediaFolder[name]->setName(name);
+  return mediaFolder[name];
 }
 
 Smt Store::createFilm(const string& name, const string& path,
  int duration, int size, const int *chapter){
-  Smt f(new Film(name,path,duration,size,chapter));
-  mediaFolder[name] = f;
-  return f; 
+  mediaFolder[name] = Smt(new Film(name,path,duration,size,chapter));;
+  return mediaFolder[name]; 
+}
+
+Smt Store::createFilm(const string& name){
+  mediaFolder[name] = Smt(new Film());
+  mediaFolder[name]->setName(name);
+  return mediaFolder[name];
 }
 
 Sgr Store::createGroup( const string& name){
-  Sgr gr(new Group(name));
-  groupFolder[name] = gr;
-  return gr;
+  groupFolder[name] = Sgr(new Group(name));;
+  return groupFolder[name];
 }
 
 void Store::showElement(const string& name, ostream& s ){

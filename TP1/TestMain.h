@@ -37,7 +37,7 @@ void testMain(){
   Sst store(new Store());
 
   // Group *list = new Group("name");
-  Group other_list("other list");
+  // Group other_list("other list");
 
   Smt p1(new Photo("Photo", "photo/test.png", 1.02, 3.1+ 2.0));
   // Smt p2(new Photo("Photo2", "photo/test.png", 1.0, 4.1 + 2.0));
@@ -66,16 +66,18 @@ void testMain(){
     while(infile){
       string clss;
       getline(infile,clss);
-      Smt inv(Creational::createMult(clss));
-      if (inv) inv->read(infile); rList->push_back(inv);
+      Smt inv = Creational::createMult(clss,infile,store);
+      if (inv) inv->read(infile);
     }
     infile.close();
   }
-  rList->pop_back();
-  rList->show(cout);
+   
+   store->showElement("film",cout);
+   store->showElement("film2",cout);
+  
   
 
-  // Smt p = store->createPhoto("PhotoMap", "photo/test.png", 1, 1 + 2.0);
+  Smt p = store->createPhoto("PhotoMap", "photo/test.png", 1, 1 + 2.0);
 
   // Sgr gr = store->createGroup("groupname");
   // gr->push_back(p1);

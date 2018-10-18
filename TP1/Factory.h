@@ -11,18 +11,24 @@
 
 using namespace std;
 using Smt = std::shared_ptr<Multimedia>;
+using Sst = std::shared_ptr<Store>;
+
 
 class Creational{
 public:
-  static Multimedia* createMult(const string &clss)
+  static Smt createMult(const string &clss, istream &is, Sst store)
   {
-    if (clss.compare("Photo") == 0)
-      return new Photo();
-    else if (clss.compare("Video") == 0)
-      return new Video;
-    else if (clss.compare("Film") == 0)
-      return new Film;
-    else 
+    string name;
+    if (clss.compare("Photo") == 0){
+      getline(is,name);
+      return store->createPhoto(name);
+    }else if (clss.compare("Video") == 0){
+      getline(is,name);
+      return store->createVideo(name);
+    }else if (clss.compare("Film") == 0){
+      getline(is,name);
+      return store->createFilm(name);
+    }else 
       return nullptr;
   }
 };
