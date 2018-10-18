@@ -90,8 +90,23 @@ void Store::deleteGroup(const string &name){
   }
 }
 
+Smt Store::createMult(const string& clss, istream &is){
+  string name;
+    if (clss.compare("Photo") == 0){
+      getline(is,name);
+      return createPhoto(name);
+    }else if (clss.compare("Video") == 0){
+      getline(is,name);
+      return createVideo(name);
+    }else if (clss.compare("Film") == 0){
+      getline(is,name);
+      return createFilm(name);
+    }else 
+      return nullptr;
+}
+
 bool Store::save(const string &outputName){
-  ofstream outF(outputName); // f(fileName.c_str()) avant C++11!
+  ofstream outF(outputName); 
   if (!outF){
     cerr << "Can't open file \n";
     return false;
@@ -101,4 +116,10 @@ bool Store::save(const string &outputName){
     outF.close();  
     return true;  
   }
+}
+
+bool Store::load(const string &outputName){ 
+  
+  return true; 
+
 }

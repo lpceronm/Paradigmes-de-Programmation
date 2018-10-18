@@ -79,14 +79,14 @@ void testMain(){
     while(infile){
       string clss;
       getline(infile,clss);
-      Smt inv = Creational::createMult(clss,infile,store1);
+      Smt inv = store1->createMult(clss,infile);
       if (inv) inv->read(infile);
     }
     infile.close();
   }
    
-   store->showElement("film",cout);
-   store->showElement("film2",cout);
+   store1->showElement("film",cout);
+   store1->showElement("film2",cout);
   
   
 

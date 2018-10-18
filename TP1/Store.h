@@ -52,7 +52,11 @@ public:
 
   void deleteGroup(const string& name);
 
+  Smt createMult(const string& clss, istream& is);
+
   bool save(const string& outputName );
+
+  bool load(const string& inputName);
 
 };
 
