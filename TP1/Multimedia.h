@@ -11,8 +11,8 @@ using namespace std;
 class Multimedia{
   
 private:
-  string name = "";
-  string path = "";
+  string name = "NN";
+  string path = "no/path";
 
 public:
   Multimedia();

@@ -29,7 +29,13 @@ public:
 
   const int  getChapNumber();
 
+  const char* className() const { return "Film"; }
+
   void show(ostream &s);
+
+  void write(ostream &os);
+
+  void read(istream &is);
 
 };
 

@@ -16,14 +16,9 @@ using namespace std;
 using Sst = std::shared_ptr<Store>;
 
 void testMain(){
-  int *chap3 = new int[12]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
-  int *chap2 = new int[3]{1, 2, 3};
-  Film *f3 = new Film("film", "path", 20, 12, chap3);
-
-  ofstream myfile;
-  myfile.open ("example.txt");
-
-
+  // int *chap3 = new int[12]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
+  // int *chap2 = new int[3]{1, 2, 3};
+  // Film *f3 = new Film("film", "path", 20, 12, chap3);
   // Film * f1 = new Film("film", "path", 20, 3, chap2);
   // f1->show(cout);
 
@@ -40,12 +35,12 @@ void testMain(){
 
   Sst store(new Store());
 
-  Group *list = new Group("name");
+  // Group *list = new Group("name");
   Group other_list("other list");
 
-  Smt p1(new Photo("Photo", "photo/test.png", 1, 1 + 2.0));
-  Smt p2(new Photo("Photo2", "photo/test.png", 1, 1 + 2.0));
-  Smt p3(new Photo("Photo3", "photo/test.png", 1, 1 + 2.0));
+  Smt p1(new Photo("Photo", "photo/test.png", 1.02, 3.1+ 2.0));
+  Smt p2(new Photo("Photo2", "photo/test.png", 1.0, 4.1 + 2.0));
+  Smt p3(new Photo("Photo3", "photo/test.png", 1.0, 1.3 + 2.0));
 
 
   Smt v1(new Video("Video", "video/test.png", 11));
@@ -53,8 +48,12 @@ void testMain(){
   int *chap = new int[12]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
   Smt f(new Film("film", "path", 20, 12, chap));
 
+
+  ofstream myfile;
+  myfile.open ("example.txt");
+
   
-  p1->write(myfile);
+  f->write(myfile);
   myfile.close();
 
   Group *rList = new Group("inList");
@@ -62,10 +61,13 @@ void testMain(){
   
   if (infile) {
     while(infile){
-      Smt inv(new Photo());
+      string clss;
+      getline(infile,clss);
+      Smt inv(new Film());
       inv->read(infile);
       rList->push_back(inv);
     }
+    infile.close();
   }
 
   rList->show(cout);

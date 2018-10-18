@@ -1,6 +1,8 @@
 #include "Video.h"
 #include "Multimedia.h"
 
+Video::Video(){};
+
 Video::Video(const string& name, const string& path, int duration) :
   Multimedia(name, path), duration(duration){}
 
@@ -19,4 +21,17 @@ void Video::show(ostream &s){
 void Video::play(){
    string command("open " + getPath() + " &");
     system(command.c_str());
+}
+
+void Video::write(ostream &os){
+  os << className()<< '\n';
+  Multimedia::write(os);
+  os<< duration << '\n';
+}
+
+void Video::read(istream &is){
+  Multimedia::read(is);
+  string dur ;
+  getline(is,dur);
+  duration = atoi(dur.c_str());
 }
