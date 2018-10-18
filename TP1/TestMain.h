@@ -2,6 +2,7 @@
 #define TEST_M
 
 #include <iostream>
+#include <fstream>
 #include <memory>
 
 #include "Multimedia.h"
@@ -18,6 +19,10 @@ void testMain(){
   int *chap3 = new int[12]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
   int *chap2 = new int[3]{1, 2, 3};
   Film *f3 = new Film("film", "path", 20, 12, chap3);
+
+  ofstream myfile;
+  myfile.open ("example.txt");
+
 
   // Film * f1 = new Film("film", "path", 20, 3, chap2);
   // f1->show(cout);
@@ -42,43 +47,62 @@ void testMain(){
   Smt p2(new Photo("Photo2", "photo/test.png", 1, 1 + 2.0));
   Smt p3(new Photo("Photo3", "photo/test.png", 1, 1 + 2.0));
 
+
   Smt v1(new Video("Video", "video/test.png", 11));
   Smt v2(new Video("Video2", "video/test.png", 11));
   int *chap = new int[12]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
   Smt f(new Film("film", "path", 20, 12, chap));
 
-  Smt p = store->createPhoto("PhotoMap", "photo/test.png", 1, 1 + 2.0);
+  
+  p1->write(myfile);
+  myfile.close();
 
-  Sgr gr = store->createGroup("groupname");
-  gr->push_back(p1);
-  gr->push_back(p);
-  p.reset();
+  Group *rList = new Group("inList");
+  ifstream infile("example.txt");
+  
+  if (infile) {
+    while(infile){
+      Smt inv(new Photo());
+      inv->read(infile);
+      rList->push_back(inv);
+    }
+  }
 
-  gr->show(cout);
-  gr.reset();
+  rList->show(cout);
+  
 
-  store->showElement("Name", cout);
-  store->showElement("groupname", cout);
-  store->showElement("PhotoMap", cout);
-  // store->playElement("PhotoMap");
-  // store->playElement("Name");
-  store->deleteElement("PhotoMap");
-  store->deleteGroup("groupname");
+  // Smt p = store->createPhoto("PhotoMap", "photo/test.png", 1, 1 + 2.0);
 
-  // delete[] chap;
+  // Sgr gr = store->createGroup("groupname");
+  // gr->push_back(p1);
+  // gr->push_back(p);
+  // p.reset();
 
-  cout << "**************** Something different" << endl;
-  list->push_back(p1);
-  list->push_back(v1);
-  list->push_back(f);
-  list->push_back(p3);
-  other_list.push_back(p1);
-  other_list.push_back(p2);
-  other_list.push_back(f);
-  other_list.push_back(v2);
+  // gr->show(cout);
+  // gr.reset();
 
-  list->show(cout);
-  other_list.show(cout);
+  // store->showElement("Name", cout);
+  // store->showElement("groupname", cout);
+  // store->showElement("PhotoMap", cout);
+  // // store->playElement("PhotoMap");
+  // // store->playElement("Name");
+  // store->deleteElement("PhotoMap");
+  // store->deleteGroup("groupname");
+
+  // // delete[] chap;
+
+  // cout << "**************** Something different" << endl;
+  // list->push_back(p1);
+  // list->push_back(v1);
+  // list->push_back(f);
+  // list->push_back(p3);
+  // other_list.push_back(p1);
+  // other_list.push_back(p2);
+  // other_list.push_back(f);
+  // other_list.push_back(v2);
+
+  // list->show(cout);
+  // other_list.show(cout);
 
   // cout << "****** DELETED Map group \n";
 

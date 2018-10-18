@@ -33,6 +33,10 @@ public:
 
   virtual void play() = 0;
 
+  virtual void write(ostream &os);
+
+  virtual void read(istream &is);
+
 };
 
 #endif // MULTIMEDIA_H

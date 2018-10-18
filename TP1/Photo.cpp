@@ -1,6 +1,8 @@
 #include "Photo.h"
 #include "Multimedia.h"
 
+Photo::Photo(){};
+
 Photo::Photo(const string& name, const string& path, double latitude, double longitude) : 
     Multimedia(name, path), latitude(latitude),longitude(longitude) {}
 

@@ -1,7 +1,10 @@
 #include "Multimedia.h"
 #include "Group.h"
 
+Group::Group(){};
+
 Group::Group(const string& name) : name(name) {}
+
 Group::~Group(){
   cout<< "Deleted group: " + name + "\n" ;
 }

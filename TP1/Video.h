@@ -9,6 +9,8 @@ private:
   int duration = 0;
 
 public:
+  Video();
+  
   Video(const string& name, const string& path, int duration);
 
   virtual ~Video();

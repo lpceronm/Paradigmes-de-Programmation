@@ -11,6 +11,7 @@ private:
   double longitude = 0.0;
 
 public:
+  Photo();
 
   Photo(const string& name, const string& path, double latitude, double longitude); 
 

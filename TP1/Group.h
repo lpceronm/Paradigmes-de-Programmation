@@ -13,6 +13,8 @@ private:
   string name = "";
 
 public:
+	Group();
+	
   Group(const string& name);
 
   ~Group();
