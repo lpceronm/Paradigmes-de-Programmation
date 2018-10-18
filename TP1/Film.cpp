@@ -68,7 +68,7 @@ void Film::read(istream &is){
   string num ;
   getline(is,num);
   chapNumber = atoi(num.c_str());
-
+  chapters = new int[chapNumber];
   for(int i = 0; i < chapNumber; i++){
     string chDur;
     getline(is,chDur);

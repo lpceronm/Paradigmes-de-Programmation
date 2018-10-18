@@ -20,7 +20,7 @@ public:
       return new Photo();
     else if (clss.compare("Video") == 0)
       return new Video;
-    else if (clss.compare("Film"))
+    else if (clss.compare("Film") == 0)
       return new Film;
     else 
       return nullptr;

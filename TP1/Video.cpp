@@ -29,7 +29,7 @@ void Video::write(ostream &os){
   os<< duration << '\n';
 }
 
-void Video::read(istream &is){
+void Video::read(istream &is){  
   Multimedia::read(is);
   string dur ;
   getline(is,dur);
