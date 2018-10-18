@@ -16,8 +16,7 @@ using Sst = std::shared_ptr<Store>;
 
 class Creational{
 public:
-  static Smt createMult(const string &clss, istream &is, Sst store)
-  {
+  static Smt createMult(const string &clss, istream &is, Sst store){
     string name;
     if (clss.compare("Photo") == 0){
       getline(is,name);

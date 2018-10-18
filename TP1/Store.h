@@ -52,6 +52,8 @@ public:
 
   void deleteGroup(const string& name);
 
+  bool save(const string& outputName );
+
 };
 
 #endif // STORE_H
