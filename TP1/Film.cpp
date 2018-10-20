@@ -1,6 +1,8 @@
 #include "Film.h"
 #include "Video.h"
 
+Film::Film(){}
+
 Film::Film(const string &name, const string &path, int duration, int size, const int *chapter) : 
   Video(name, path, duration), chapNumber(size), chapters(new int[size]){
   copyChapters(size, chapter);
@@ -27,8 +29,6 @@ Film& Film:: operator=(const Film& from) {
   return *this;
 }
 
-
-
 Film::~Film(){
   delete[] chapters;
   cout << "Films deleted " + getName() + "\n";
@@ -47,10 +47,32 @@ const int Film::getChapNumber() { return chapNumber; }
 
 void Film::show(ostream &s){
   Video::show(s);
-  s << "Chapters duration: "
-    << "\n";
+  s << "Chapters duration: " << "\n";
   for (int i = 0; i < chapNumber; i++){
     s << "\t Chapter" << i << ": " << chapters[i] << "\n";
+  }
+}
+
+void Film::write(ostream &os){
+  os << className()<< '\n';
+  Multimedia::write(os);
+  os << getDuration() << '\n';
+  os << getChapNumber() << '\n';
+  
+  for(int i = 0; i < chapNumber; i++)
+    os << '\t' << chapters[i] << '\n'; 
+}
+
+void Film::read(istream &is){
+  Video::read(is);
+  string num ;
+  getline(is,num);
+  chapNumber = atoi(num.c_str());
+  chapters = new int[chapNumber];
+  for(int i = 0; i < chapNumber; i++){
+    string chDur;
+    getline(is,chDur);
+    chapters[i]= atoi(chDur.c_str());
   }
 }
 

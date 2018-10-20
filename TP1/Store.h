@@ -30,12 +30,18 @@ public:
   Smt createPhoto(const string& name, 
     const string& path, double latitude, double longitude);
 
+  Smt createPhoto(const string& name);
+
   Smt createVideo(const string& name, 
     const string& path, double duration);
   
+  Smt createVideo(const string& name);
+
   Smt createFilm(const string& name, 
     const string& path, int duration, int size, const int *chapter);    
   
+  Smt createFilm(const string& name);
+
   Sgr createGroup(const string& name);
 
   void showElement(const string& name, ostream& s );
@@ -45,6 +51,12 @@ public:
   void deleteElement(const string& name);
 
   void deleteGroup(const string& name);
+
+  Smt createMult(const string& clss, istream& is);
+
+  bool save(const string& outputName );
+
+  bool load(const string& inputName);
 
 };
 

@@ -11,8 +11,8 @@ using namespace std;
 class Multimedia{
   
 private:
-  string name = "";
-  string path = "";
+  string name = "NN";
+  string path = "no/path";
 
 public:
   Multimedia();
@@ -33,6 +33,9 @@ public:
 
   virtual void play() = 0;
 
+  virtual void write(ostream &os);
+
+  virtual void read(istream &is);
 };
 
 #endif // MULTIMEDIA_H

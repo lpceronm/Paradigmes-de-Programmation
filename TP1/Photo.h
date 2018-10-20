@@ -3,6 +3,7 @@
 
 #include "Multimedia.h"
 
+
 class Photo : public Multimedia{
 
 private:
@@ -11,6 +12,7 @@ private:
   double longitude = 0.0;
 
 public:
+  Photo();
 
   Photo(const string& name, const string& path, double latitude, double longitude); 
 
@@ -24,9 +26,15 @@ public:
   
   double getlongitude() const;
 
+  const char* className() const { return "Photo"; }
+
   void show(ostream &s);
 
   void play();
+
+  void write(ostream &os);
+
+  void read(istream &is);
   
 };
 

@@ -9,6 +9,8 @@ private:
   int duration = 0;
 
 public:
+  Video();
+
   Video(const string& name, const string& path, int duration);
 
   virtual ~Video();
@@ -17,9 +19,15 @@ public:
   
   virtual int getDuration() const;
 
+  virtual const char* className() const { return "Video"; }
+
   virtual void show(ostream &s) ;
 
   virtual void play() ;
+
+  virtual void write(ostream &os);
+
+  virtual void read(istream &is);
 
 };
 
