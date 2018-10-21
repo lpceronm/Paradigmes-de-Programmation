@@ -1,13 +1,35 @@
 #include "Store.h"
-#include <fstream> // std::filebuf
+#include <fstream> 
+
+struct ExistenceException:public exception {
+    string exc;
+    ExistenceException(string e): exc(e) {}
+};
+
+
+bool existsElement(File file, const string& name){
+  if(file.find(name) != file.end() )
+    throw ExistenceException(name);
+  else 
+    return false;
+}
+   
+bool existsGroup(Folder file, const string& name){
+  if(file.find(name) != file.end() )
+    throw ExistenceException(name);
+  else 
+    return false;
+}
+
 
 Store::Store() {
+
+  //  Server requests
   requests["SEARCH"] = &Store::showElement;
   requests["PLAY"] = &Store::playElement;
   requests["ALL"] = &Store::showAll;
   requests["DELMEDIA"] = &Store::deleteElement;
   requests["DELGROUP"] = &Store::deleteGroup;
-
 }
 
 Store::~Store(){
@@ -16,44 +38,77 @@ Store::~Store(){
 
 Smt Store::createPhoto(const string &name, const string &path,
   double latitude, double longitude){
-  mediaFolder[name] = Smt(new Photo(name, path, latitude, longitude));
-  return mediaFolder[name];
+  try{
+    existsElement(mediaFolder,name);
+    mediaFolder[name] = Smt(new Photo(name, path, latitude, longitude));
+    return mediaFolder[name];
+  }catch(ExistenceException & e ){
+    std::cerr << "The photo: " << e.exc << " already exists"<<'\n';
+  }   
 }
 
 Smt Store::createPhoto(const string &name){
-  mediaFolder[name] = Smt(new Photo());
-  mediaFolder[name]->setName(name);
-  return mediaFolder[name];
+  try{
+    mediaFolder[name] = Smt(new Photo());
+    mediaFolder[name]->setName(name);
+    return mediaFolder[name];
+  }catch(ExistenceException & e ){
+    std::cerr << "The photo: " << e.exc << " already exists"<<'\n';
+  }  
 }
 
 Smt Store::createVideo(const string &name, const string &path, double duration){
-  mediaFolder[name] = Smt(new Video(name, path, duration));
-  ;
-  return mediaFolder[name];
+  try{
+    existsElement(mediaFolder,name);
+    mediaFolder[name] = Smt(new Video(name, path, duration));
+    return mediaFolder[name];
+  }catch(ExistenceException & e ){
+    std::cerr << "The video: " << e.exc << " already exists"<<'\n';
+  }
 }
 
 Smt Store::createVideo(const string &name){
-  mediaFolder[name] = Smt(new Video());
-  mediaFolder[name]->setName(name);
-  return mediaFolder[name];
+  try{
+    existsElement(mediaFolder,name);
+    mediaFolder[name] = Smt(new Video());
+    mediaFolder[name]->setName(name);
+    return mediaFolder[name];
+  }catch(ExistenceException & e ){
+    std::cerr << "The video: " << e.exc << " already exists"<<'\n';
+  }
 }
 
 Smt Store::createFilm(const string &name, const string &path,
   int duration, int size, const int *chapter){
-  mediaFolder[name] = Smt(new Film(name, path, duration, size, chapter));
-  ;
-  return mediaFolder[name];
+  try{
+    existsElement(mediaFolder,name);
+    mediaFolder[name] = Smt(new Film(name, path, duration, size, chapter));
+    return mediaFolder[name];
+  }catch(ExistenceException & e ){
+    std::cerr << "The film: " << e.exc << " already exists"<<'\n';
+  }  
+ 
 }
 
 Smt Store::createFilm(const string &name){
-  mediaFolder[name] = Smt(new Film());
-  mediaFolder[name]->setName(name);
-  return mediaFolder[name];
+  try{
+    existsElement(mediaFolder,name);
+    mediaFolder[name] = Smt(new Film());
+    mediaFolder[name]->setName(name);
+    return mediaFolder[name];
+  }catch(ExistenceException & e ){
+    std::cerr << "The film: " << e.exc << " already exists"<<'\n';
+  }   
 }
 
 Sgr Store::createGroup(const string &name){
-  groupFolder[name] = Sgr(new Group(name));
-  return groupFolder[name];
+  try{
+    existsGroup(groupFolder,name);
+    groupFolder[name] = Sgr(new Group(name));
+    return groupFolder[name];
+  }catch(ExistenceException & e ){
+    std::cerr << "The group: " << e.exc << " already exists"<<'\n';
+  }
 }
 
 void Store::showAll(const string &name, ostream &s){
@@ -111,6 +166,7 @@ void Store::deleteGroup(const string &name,ostream& s){
   }
 }
 
+//  Factory to create objects
 Smt Store::createMult(const string& clss, istream &is){
   string name;
     if (clss.compare("Photo") == 0){
@@ -125,6 +181,8 @@ Smt Store::createMult(const string& clss, istream &is){
     }else 
       return nullptr;
 }
+
+// Serialization
 
 bool Store::save(const string &outputName){
   ofstream outF(outputName); 
@@ -156,6 +214,10 @@ bool Store::load(const string &inputName){
   }  
 }
 
+
+// Process clients requests 
+
+
 bool Store::processRequest(TCPConnection& cnx, const string& request, string& response){
   
   cerr << "\nRequest: '" << request << "'" << endl;
@@ -172,21 +234,16 @@ bool Store::processRequest(TCPConnection& cnx, const string& request, string& re
   
   if(requests.find(command) != requests.end())
     (this->*requests[command])(parameter,resp);
-
-
   else if( command == "QUIT"){
     resp << "Connexion closed";
     return false;
   }else
     resp << "Not command found";
 
-    
   if (response == "") 
     response =  resp.str();
 
   cerr << "response: " << response << endl;
   
-
   return true;
-
 }
