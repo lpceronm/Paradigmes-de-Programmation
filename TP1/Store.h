@@ -15,12 +15,14 @@ typedef std::map<string, Smt> File;
 typedef std::map<string, Sgr> Folder; 
 
 
-
 class Store{
+typedef void (Store::*fcn_ptr)(const string& name, ostream& s);
+typedef std::map<string, fcn_ptr> Request;
 
 private:
   File mediaFolder;
   Folder groupFolder;
+  Request requests;
 
 public:
   Store();
@@ -46,7 +48,7 @@ public:
 
   void showElement(const string& name, ostream& s );
 
-  void playElement(const string& name);
+  void playElement(const string& name, ostream& s);
 
   void deleteElement(const string& name);
 
@@ -57,6 +59,8 @@ public:
   bool save(const string& outputName );
 
   bool load(const string& inputName);
+
+  bool processRequest(const string& name, ostream &os);
 
 };
 

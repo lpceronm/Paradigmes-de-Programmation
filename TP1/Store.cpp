@@ -1,7 +1,11 @@
 #include "Store.h"
 #include <fstream> // std::filebuf
 
-Store::Store() {}
+Store::Store() {
+  requests["SEARCH"] = &Store::showElement;
+  requests["PLAY"] = &Store::playElement;
+}
+
 Store::~Store(){
   cout << "Deleted Store \n";
 }
@@ -61,12 +65,13 @@ void Store::showElement(const string &name, ostream &s){
   }
 }
 
-void Store::playElement(const string &name){
+void Store::playElement(const string &name, ostream& s){
   auto mult = mediaFolder.find(name);
-  if (mult != mediaFolder.end())
+  if (mult != mediaFolder.end()){
+    s << "Playing: "<< name<< endl;
     mult->second->play();
-  else
-    cout << "Multimedia element not found" << endl;
+  } else
+    s << "Multimedia element not found" << endl;
 }
 
 void Store::deleteElement(const string &name){
@@ -132,5 +137,12 @@ bool Store::load(const string &inputName){
     }
     inF.close();
     return true; 
-  }
+  }  
+}
+
+bool Store::processRequest(const string& name, ostream &os){
+  
+   (this->*requests["SEARCH"])(name,os);
+   (this->*requests["PLAY"])(name,os);
+
 }
