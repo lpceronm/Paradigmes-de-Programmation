@@ -36,7 +36,7 @@ int testMain(){
 
   Sst store(new Store());
   Smt p = store->createPhoto("PhotoMap", "photo/test.png", 1, 1 + 2.0);
-  Smt p2 = store->createPhoto("PhotoMap", "photo/test.png", 1, 1 + 2.0);
+  Smt p2 = store->createPhoto("Photo2", "photo/test.png", 1, 1 + 2.0);
   Smt p1 = store->createPhoto("Photo", "photo/test.png", 1.02, 3.1+ 2.0);
   Smt v1 = store->createVideo("Video2", "video/test.png", 11);
   Smt f = store->createFilm("film", "video/video.mp4", 20, 12, chap);
@@ -48,7 +48,9 @@ int testMain(){
   f.reset();
   f2.reset();
 
-  // store->showElement("PhotoMap", cout);
+  // store->showElement("Photo3", cout);
+  // store->playElement("Photo3",cout);
+
   // Group *list = new Group("name");
   // Group other_list("other list");
 
