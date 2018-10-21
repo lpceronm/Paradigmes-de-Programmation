@@ -1,38 +1,5 @@
 #include "Store.h"
-#include <fstream>
-
-struct ExistenceException : public exception{
-  string exc;
-  ExistenceException(string e) : exc(e) {}
-};
-
-bool existsElement(File file, const string &name){
-  if (file.find(name) != file.end())
-    throw ExistenceException(name);
-  else
-    return false;
-}
-
-bool existsGroup(Folder file, const string &name){
-  if (file.find(name) != file.end())
-    throw ExistenceException(name);
-  else
-    return false;
-}
-
-bool notFoundElement(File file, const string &name){
-  if (file.find(name) == file.end())
-    throw ExistenceException(name);
-  else
-    return false;
-}
-
-bool notFoundGroup(Folder file, const string &name){
-  if (file.find(name) == file.end())
-    throw ExistenceException(name);
-  else
-    return false;
-}
+#include "Exception.h"
 
 Store::Store(){
 
@@ -51,40 +18,53 @@ Store::~Store(){
 Smt Store::createPhoto(const string &name, const string &path,
   double latitude, double longitude){
   try{
+    matchPattern(name);
     existsElement(mediaFolder, name);
     mediaFolder[name] = Smt(new Photo(name, path, latitude, longitude));
     return mediaFolder[name];
   }catch (ExistenceException &e){
     std::cerr << "The photo: " << e.exc << " already exists" << '\n';
     return nullptr;
+  }catch (PatternException & e){
+    std::cerr << e.exc << ": doesn't have a permitted pattern" << '\n';
+    return nullptr;
   }
 }
 
 Smt Store::createPhoto(const string &name){
   try{
+    matchPattern(name);
+    existsElement(mediaFolder, name);
     mediaFolder[name] = Smt(new Photo());
     mediaFolder[name]->setName(name);
     return mediaFolder[name];
   }catch (ExistenceException &e){
     std::cerr << "The photo: " << e.exc << " already exists" << '\n';
     return nullptr;
+  }catch (PatternException & e){
+    std::cerr << e.exc << ": doesn't have a permitted pattern" << '\n';
+    return nullptr;
   }
 }
 
 Smt Store::createVideo(const string &name, const string &path, double duration){
   try{
+    matchPattern(name);
     existsElement(mediaFolder, name);
     mediaFolder[name] = Smt(new Video(name, path, duration));
     return mediaFolder[name];
-  }
-  catch (ExistenceException &e){
+  }catch (ExistenceException &e){
     std::cerr << "The video: " << e.exc << " already exists" << '\n';
+    return nullptr;
+  }catch (PatternException & e){
+    std::cerr << e.exc << ": doesn't have a permitted pattern" << '\n';
     return nullptr;
   }
 }
 
 Smt Store::createVideo(const string &name){
   try{
+    matchPattern(name);
     existsElement(mediaFolder, name);
     mediaFolder[name] = Smt(new Video());
     mediaFolder[name]->setName(name);
@@ -92,23 +72,31 @@ Smt Store::createVideo(const string &name){
   }catch (ExistenceException &e){
     std::cerr << "The video: " << e.exc << " already exists" << '\n';
     return nullptr;
+  }catch (PatternException & e){
+    std::cerr << e.exc << ": doesn't have a permitted pattern" << '\n';
+    return nullptr;
   }
 }
 
 Smt Store::createFilm(const string &name, const string &path,
   int duration, int size, const int *chapter){
   try{
+    matchPattern(name);
     existsElement(mediaFolder, name);
     mediaFolder[name] = Smt(new Film(name, path, duration, size, chapter));
     return mediaFolder[name];
   }catch (ExistenceException &e){
     std::cerr << "The film: " << e.exc << " already exists.  " << '\n';
     return nullptr;
+  }catch (PatternException & e){
+    std::cerr << e.exc << ": doesn't have a permitted pattern" << '\n';
+    return nullptr;
   }
 }
 
 Smt Store::createFilm(const string &name){
   try{
+    matchPattern(name);
     existsElement(mediaFolder, name);
     mediaFolder[name] = Smt(new Film());
     mediaFolder[name]->setName(name);
@@ -116,16 +104,23 @@ Smt Store::createFilm(const string &name){
   }catch (ExistenceException &e){
     std::cerr << "The film: " << e.exc << " already exists.  " << '\n';
     return nullptr;
+  }catch (PatternException & e){
+    std::cerr << e.exc << ": doesn't have a permitted pattern" << '\n';
+    return nullptr;
   }
 }
 
 Sgr Store::createGroup(const string &name){
   try{
+    matchPattern(name);
     existsGroup(groupFolder, name);
     groupFolder[name] = Sgr(new Group(name));
     return groupFolder[name];
   }catch (ExistenceException &e){
     std::cerr << "The group: " << e.exc << " already exists.  " << '\n';
+    return nullptr;
+  }catch (PatternException & e){
+    std::cerr << e.exc << ": doesn't have a permitted pattern" << '\n';
     return nullptr;
   }
 }
@@ -139,6 +134,7 @@ void Store::showAll(const string &name, ostream &s){
 
 void Store::showElement(const string &name, ostream &s){
   try{
+    matchPattern(name);
     notFoundElement(mediaFolder, name);
     auto mult = mediaFolder.find(name);
     mult->second->show(s);
@@ -151,22 +147,28 @@ void Store::showElement(const string &name, ostream &s){
     }catch (ExistenceException &e){
       s << "Multimedia element or group " << e.exc << " not found.  ";
     }
+  }catch (PatternException & e){
+    s << e.exc << ": doesn't have a permitted pattern.  " ;
   }
 }
 
 void Store::playElement(const string &name, ostream &s){
   try{
+    matchPattern(name);
     notFoundElement(mediaFolder, name);
     auto mult = mediaFolder.find(name);
     s << "Playing: " << name << "  ";
     mult->second->play();
   }catch (ExistenceException &e){
     s << "Multimedia element " << e.exc << " not found.  ";
+  }catch (PatternException & e){
+    s << e.exc << ": doesn't have a permitted pattern.  " ;
   }
 }
 
 void Store::deleteElement(const string &name, ostream &s){
   try{
+    matchPattern(name);
     notFoundElement(mediaFolder, name);
     auto mult = mediaFolder.find(name);
     mult->second.reset();
@@ -174,12 +176,14 @@ void Store::deleteElement(const string &name, ostream &s){
     s << "Deleted: " << name;
   }catch (ExistenceException &e){
     s << "Multimedia element " << e.exc << " not found.  ";
+  }catch (PatternException & e){
+    s << e.exc << ": doesn't have a permitted pattern.  " ;
   }
 }
 
 void Store::deleteGroup(const string &name, ostream &s){
-  auto group = groupFolder.find(name);
   try{
+    matchPattern(name);
     notFoundGroup(groupFolder, name);
     auto group = groupFolder.find(name);
     group->second.reset();
@@ -187,6 +191,8 @@ void Store::deleteGroup(const string &name, ostream &s){
     s << "Deleted: " << name;
   }catch (ExistenceException &e){
     s << "Group:  " << e.exc << " not found.  ";
+  }catch (PatternException & e){
+    s << e.exc << ": doesn't have a permitted pattern.  " ;
   }
 }
 
@@ -254,6 +260,8 @@ bool Store::processRequest(TCPConnection &cnx, const string &request, string &re
   string command, parameter = "";
   getline(inReq, command, '?');
   getline(inReq, parameter);
+
+  TCPLock lock(cnx);
 
   if (requests.find(command) != requests.end())
     (this->*requests[command])(parameter, resp);

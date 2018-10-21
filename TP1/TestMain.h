@@ -35,7 +35,7 @@ int testMain(){
   // f1->show(cout);
 
   Sst store(new Store());
-  Smt p = store->createPhoto("PhotoMap", "photo/test.png", 1, 1 + 2.0);
+  Smt p = store->createPhoto("PhotoMap*^", "photo/test.png", 1, 1 + 2.0);
   Smt p2 = store->createPhoto("Photo2", "photo/test.png", 1, 1 + 2.0);
   Smt p1 = store->createPhoto("Photo", "photo/test.png", 1.02, 3.1+ 2.0);
   Smt v1 = store->createVideo("Video2", "video/test.png", 11);
