@@ -38,12 +38,14 @@ Store::~Store(){
 
 Smt Store::createPhoto(const string &name, const string &path,
   double latitude, double longitude){
+    
   try{
     existsElement(mediaFolder,name);
     mediaFolder[name] = Smt(new Photo(name, path, latitude, longitude));
     return mediaFolder[name];
   }catch(ExistenceException & e ){
     std::cerr << "The photo: " << e.exc << " already exists"<<'\n';
+    return nullptr;
   }   
 }
 
@@ -54,6 +56,7 @@ Smt Store::createPhoto(const string &name){
     return mediaFolder[name];
   }catch(ExistenceException & e ){
     std::cerr << "The photo: " << e.exc << " already exists"<<'\n';
+    return nullptr;
   }  
 }
 
@@ -64,6 +67,7 @@ Smt Store::createVideo(const string &name, const string &path, double duration){
     return mediaFolder[name];
   }catch(ExistenceException & e ){
     std::cerr << "The video: " << e.exc << " already exists"<<'\n';
+    return nullptr;
   }
 }
 
@@ -75,6 +79,7 @@ Smt Store::createVideo(const string &name){
     return mediaFolder[name];
   }catch(ExistenceException & e ){
     std::cerr << "The video: " << e.exc << " already exists"<<'\n';
+    return nullptr;
   }
 }
 
@@ -86,6 +91,7 @@ Smt Store::createFilm(const string &name, const string &path,
     return mediaFolder[name];
   }catch(ExistenceException & e ){
     std::cerr << "The film: " << e.exc << " already exists"<<'\n';
+    return nullptr;
   }  
  
 }
@@ -98,6 +104,7 @@ Smt Store::createFilm(const string &name){
     return mediaFolder[name];
   }catch(ExistenceException & e ){
     std::cerr << "The film: " << e.exc << " already exists"<<'\n';
+    return nullptr;
   }   
 }
 
@@ -108,6 +115,7 @@ Sgr Store::createGroup(const string &name){
     return groupFolder[name];
   }catch(ExistenceException & e ){
     std::cerr << "The group: " << e.exc << " already exists"<<'\n';
+    return nullptr;
   }
 }
 
