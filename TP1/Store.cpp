@@ -61,17 +61,17 @@ void Store::showElement(const string &name, ostream &s){
     if (group != groupFolder.end())
       group->second->show(s);
     else
-      s << "Multimedia element or group not found" << endl;
+      s << "Multimedia element or group not found...";
   }
 }
 
 void Store::playElement(const string &name, ostream& s){
   auto mult = mediaFolder.find(name);
   if (mult != mediaFolder.end()){
-    s << "Playing: "<< name<< endl;
+    s << "Playing: "<< name << "  ";
     mult->second->play();
   } else
-    s << "Multimedia element not found" << endl;
+    s << "Multimedia element not found..." ;
 }
 
 void Store::deleteElement(const string &name){
@@ -80,7 +80,7 @@ void Store::deleteElement(const string &name){
     mult->second.reset();
     mediaFolder.erase(mult);
   }else{
-    cout << "Multimedia element not found" << endl;
+    cout << "Multimedia element not found..." ;
   }
 }
 
