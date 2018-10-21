@@ -51,13 +51,15 @@ public:
 
   Sgr createGroup(const string& name);
 
+  void showAll(const string& name, ostream&s );
+
   void showElement(const string& name, ostream& s );
 
   void playElement(const string& name, ostream& s);
 
-  void deleteElement(const string& name);
+  void deleteElement(const string& name, ostream& s);
 
-  void deleteGroup(const string& name);
+  void deleteGroup(const string& name, ostream& s);
 
   Smt createMult(const string& clss, istream& is);
 

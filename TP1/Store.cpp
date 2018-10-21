@@ -4,6 +4,10 @@
 Store::Store() {
   requests["SEARCH"] = &Store::showElement;
   requests["PLAY"] = &Store::playElement;
+  requests["ALL"] = &Store::showAll;
+  requests["DELMEDIA"] = &Store::deleteElement;
+  requests["DELGROUP"] = &Store::deleteGroup;
+
 }
 
 Store::~Store(){
@@ -52,6 +56,16 @@ Sgr Store::createGroup(const string &name){
   return groupFolder[name];
 }
 
+void Store::showAll(const string &name, ostream &s){
+  
+  for(auto it = mediaFolder.begin(); it != mediaFolder.end(); it++){
+   it->second->show(s);
+  }
+  for(auto it = groupFolder.begin(); it != groupFolder.end(); it++){
+   it->second->show(s);
+  }  
+}
+
 void Store::showElement(const string &name, ostream &s){
   auto mult = mediaFolder.find(name);
   if (mult != mediaFolder.end())
@@ -61,7 +75,7 @@ void Store::showElement(const string &name, ostream &s){
     if (group != groupFolder.end())
       group->second->show(s);
     else
-      s << "Multimedia element or group not found...";
+      s << "Multimedia element or group not found.  ";
   }
 }
 
@@ -71,27 +85,29 @@ void Store::playElement(const string &name, ostream& s){
     s << "Playing: "<< name << "  ";
     mult->second->play();
   } else
-    s << "Multimedia element not found..." ;
+    s << "Multimedia element not found.  " ;
 }
 
-void Store::deleteElement(const string &name){
+void Store::deleteElement(const string &name, ostream& s){
   auto mult = mediaFolder.find(name);
   if (mult != mediaFolder.end()){
     mult->second.reset();
     mediaFolder.erase(mult);
+    s << "Deleted: " << name;
   }else{
-    cout << "Multimedia element not found..." ;
+    s << name  << " not found.   " ;
   }
 }
 
-void Store::deleteGroup(const string &name){
+void Store::deleteGroup(const string &name,ostream& s){
   auto group = groupFolder.find(name);
   if (group != groupFolder.end()){
     group->second.reset();
     groupFolder.erase(group);
+    s << "Deleted: " << name;
   }
   else{
-    cout << "Group not found" << endl;
+    s << name  << " not found.   " ;
   }
 }
 
@@ -149,15 +165,22 @@ bool Store::processRequest(TCPConnection& cnx, const string& request, string& re
   istringstream inReq(request);
   ostringstream resp;
 
-  string command, parameter, parnm;
+  string command, parameter = "";
   getline(inReq, command, '?');
   getline(inReq, parameter);
 
+  
   if(requests.find(command) != requests.end())
     (this->*requests[command])(parameter,resp);
-  else
+
+
+  else if( command == "QUIT"){
+    resp << "Connexion closed";
+    return false;
+  }else
     resp << "Not command found";
 
+    
   if (response == "") 
     response =  resp.str();
 
