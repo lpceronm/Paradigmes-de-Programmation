@@ -8,8 +8,6 @@ struct ExistenceException : public exception{
   ExistenceException(string e) : exc(e) {}
 };
 
-
-
 bool existsElement(File file, const string &name){
   
   if (file.find(name) != file.end())
