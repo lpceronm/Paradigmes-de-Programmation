@@ -3,16 +3,21 @@
 
 #include <memory>
 #include <map>
+#include <sstream>      
 #include "Multimedia.h"
 #include "Video.h"
 #include "Photo.h"
 #include "Film.h"
 #include "Group.h"
+#include "tcpserver.h"
+
 
 using Sgr = std::shared_ptr<Group>;
 
 typedef std::map<string, Smt> File; 
-typedef std::map<string, Sgr> Folder; 
+typedef std::map<string, Sgr> Folder;
+using namespace cppu;
+
 
 
 class Store{
@@ -60,7 +65,7 @@ public:
 
   bool load(const string& inputName);
 
-  bool processRequest(const string& name, ostream &os);
+  bool processRequest(TCPConnection& cnx, const string& request, string& response);
 
 };
 

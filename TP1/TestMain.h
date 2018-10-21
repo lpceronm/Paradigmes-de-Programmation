@@ -15,7 +15,7 @@
 using namespace std;
 using Sst = std::shared_ptr<Store>;
 
-void testMain(){
+int testMain(){
   int *chap2 = new int[3]{1, 2, 3};
   int *chap = new int[12]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
 
@@ -77,7 +77,7 @@ void testMain(){
   // store1->showElement("film2",cout);
 
 
-  store->processRequest("film",cout);
+  // store->processRequest("film",cout);
   
 
  

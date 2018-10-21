@@ -140,9 +140,30 @@ bool Store::load(const string &inputName){
   }  
 }
 
-bool Store::processRequest(const string& name, ostream &os){
+bool Store::processRequest(TCPConnection& cnx, const string& request, string& response){
   
-   (this->*requests["SEARCH"])(name,os);
-   (this->*requests["PLAY"])(name,os);
+  cerr << "\nRequest: '" << request << "'" << endl;
+  response = "";
+  // Request format <METHOD>?<name>
+
+  istringstream inReq(request);
+  ostringstream resp;
+
+  string command, parameter, parnm;
+  getline(inReq, command, '?');
+  getline(inReq, parameter);
+
+  if(requests.find(command) != requests.end())
+    (this->*requests[command])(parameter,resp);
+  else
+    resp << "Not command found";
+
+  if (response == "") 
+    response =  resp.str();
+
+  cerr << "response: " << response << endl;
+  
+
+  return true;
 
 }
