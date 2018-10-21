@@ -3,7 +3,8 @@
 
 #include <memory>
 #include <map>
-#include <sstream>      
+#include <sstream>     
+#include <fstream>
 #include "Multimedia.h"
 #include "Video.h"
 #include "Photo.h"
