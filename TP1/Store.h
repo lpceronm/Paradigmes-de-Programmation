@@ -3,24 +3,31 @@
 
 #include <memory>
 #include <map>
+#include <sstream>      
 #include "Multimedia.h"
 #include "Video.h"
 #include "Photo.h"
 #include "Film.h"
 #include "Group.h"
+#include "tcpserver.h"
+
 
 using Sgr = std::shared_ptr<Group>;
 
 typedef std::map<string, Smt> File; 
-typedef std::map<string, Sgr> Folder; 
+typedef std::map<string, Sgr> Folder;
+using namespace cppu;
 
 
 
 class Store{
+typedef void (Store::*fcn_ptr)(const string& name, ostream& s);
+typedef std::map<string, fcn_ptr> Request;
 
 private:
   File mediaFolder;
   Folder groupFolder;
+  Request requests;
 
 public:
   Store();
@@ -44,19 +51,23 @@ public:
 
   Sgr createGroup(const string& name);
 
+  void showAll(const string& name, ostream&s );
+
   void showElement(const string& name, ostream& s );
 
-  void playElement(const string& name);
+  void playElement(const string& name, ostream& s);
 
-  void deleteElement(const string& name);
+  void deleteElement(const string& name, ostream& s);
 
-  void deleteGroup(const string& name);
+  void deleteGroup(const string& name, ostream& s);
 
   Smt createMult(const string& clss, istream& is);
 
   bool save(const string& outputName );
 
   bool load(const string& inputName);
+
+  bool processRequest(TCPConnection& cnx, const string& request, string& response);
 
 };
 

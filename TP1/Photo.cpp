@@ -17,8 +17,8 @@ double Photo::getlongitude() const { return longitude; }
 
 void Photo::show(ostream &s){
   Multimedia::show(s);
-  s << "Latitude: " << getlatitude() << '\n';
-  s << "Longitude: " << getlongitude() << '\n';
+  s << "Latitude: " << getlatitude() << ",   ";
+  s << "Longitude: " << getlongitude() << ",   ";
 }
 
 void Photo::play(){

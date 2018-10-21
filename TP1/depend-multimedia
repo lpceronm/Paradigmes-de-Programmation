@@ -2,7 +2,10 @@ Film.o: Film.cpp Film.h Video.h Multimedia.h
 Group.o: Group.cpp Multimedia.h Group.h
 Multimedia.o: Multimedia.cpp Multimedia.h Photo.h Video.h Film.h
 Main.o: Main.cpp TestMain.h Multimedia.h Video.h Photo.h Film.h Group.h \
-  Store.h ServerMain.h
+  Store.h tcpserver.h cppsocket.h ServerMain.h
 Photo.o: Photo.cpp Photo.h Multimedia.h
-Store.o: Store.cpp Store.h Multimedia.h Video.h Photo.h Film.h Group.h
+Store.o: Store.cpp Store.h Multimedia.h Video.h Photo.h Film.h Group.h \
+  tcpserver.h cppsocket.h
 Video.o: Video.cpp Video.h Multimedia.h
+cppsocket.o: cppsocket.cpp cppsocket.h
+tcpserver.o: tcpserver.cpp tcpserver.h cppsocket.h

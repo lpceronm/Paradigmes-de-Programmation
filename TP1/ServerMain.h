@@ -11,21 +11,43 @@
 #include "Group.h"
 #include "Store.h"
 
+
 using namespace std;
-using Sst = std::shared_ptr<Store>;
+const int PORT = 3331;
 
-void serverMain(){
-  cout << "Funciona con el def"<< endl;
-  int *chap = new int[12]{1, 2, 3, 4,5,6,7,8,9,10,11,12};
+
+int serverMain(){
   int *chap2 = new int[3]{1, 2, 3};
-  Film * f = new Film("film", "path", 20, 12, chap);
+  int *chap = new int[12]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
+  Sst store(new Store());
+  Smt p = store->createPhoto("PhotoMap", "photo/test.png", 1, 1 + 2.0);
+  Smt p1 = store->createPhoto("Photo", "photo/test.png", 1.02, 3.1+ 2.0);
+  Smt v1 = store->createVideo("Video2", "video/test.png", 11);
+  Smt f = store->createFilm("film", "video/video.mp4", 20, 12, chap);
+  Smt f2 = store->createFilm("film2", "pa2th", 20, 3, chap2);
 
-  Film * f1 = new Film("film", "path", 20, 3, chap2);
-  f1->show(cout);
+  p.reset();
+  p1.reset();
+  v1.reset();
+  f.reset();
+  f2.reset();
 
-  *f1 = *f;
-  delete f;
-  f1->show(cout);
+
+  // create a TCP server
+    shared_ptr<TCPServer> server(new TCPServer());
+
+    //create a non empty Store
+    // Set sever callback as the dedicated function of the Store previouslt created.
+    server->setCallback(*store, &Store::processRequest);
+
+    // launch the server (loop)
+    cout << "Starting Server on port " << PORT << endl;
+
+    //possible server error:
+    int status = server->run(PORT);
+    if (status < 0) { cerr << "Could not start Server on port " << PORT << endl; return 1;}
+
+    return 0;
 
 }
 #endif

@@ -14,7 +14,7 @@ PROG = multimedia
 #
 # Fichiers sources (NE PAS METTRE les .h ni les .o seulement les .cpp)
 #
-SOURCES = Film.cpp  Group.cpp Multimedia.cpp Main.cpp Photo.cpp Store.cpp Video.cpp 
+SOURCES = Film.cpp  Group.cpp Multimedia.cpp Main.cpp Photo.cpp Store.cpp Video.cpp cppsocket.cpp tcpserver.cpp 
 
 #
 # Fichiers objets (ne pas modifier sauf si l'extension n'est pas .cpp)
@@ -43,7 +43,7 @@ LDFLAGS =
 # Librairies a utiliser
 # Exemple: LDLIBS = -L/usr/local/qt/lib -lqt
 #
-LDLIBS =
+LDLIBS = -lpthread
 
 
 ##########################################
