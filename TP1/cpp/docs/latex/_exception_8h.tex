@@ -1,0 +1,45 @@
+\hypertarget{_exception_8h}{}\section{Exception.\+h File Reference}
+\label{_exception_8h}\index{Exception.h@{Exception.h}}
+
+
+Class in charge of the exception handling.  
+
+
+{\ttfamily \#include $<$regex$>$}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_existence_exception}{Existence\+Exception}}
+\begin{DoxyCompactList}\small\item\em raises an error when\+: \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_pattern_exception}{Pattern\+Exception}}
+\begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{struct_pattern_exception}{Pattern\+Exception}} raises an error when a file name doesn\textquotesingle{}t match a permited pattern. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_exception_8h_a13353842af787eadb8df9544bd7601bd}\label{_exception_8h_a13353842af787eadb8df9544bd7601bd}} 
+bool {\bfseries exists\+Element} (File file, const string \&name)
+\item 
+\mbox{\Hypertarget{_exception_8h_a8faaf3b87b8cb2581b98f96ef2da9e4b}\label{_exception_8h_a8faaf3b87b8cb2581b98f96ef2da9e4b}} 
+bool {\bfseries exists\+Group} (Folder file, const string \&name)
+\item 
+\mbox{\Hypertarget{_exception_8h_af3e74d4b3c56973bdf5c762645d9a2a8}\label{_exception_8h_af3e74d4b3c56973bdf5c762645d9a2a8}} 
+bool {\bfseries not\+Found\+Element} (File file, const string \&name)
+\item 
+\mbox{\Hypertarget{_exception_8h_a5501d979f9d07b39a39c4fd18dcbc219}\label{_exception_8h_a5501d979f9d07b39a39c4fd18dcbc219}} 
+bool {\bfseries not\+Found\+Group} (Folder file, const string \&name)
+\item 
+\mbox{\Hypertarget{_exception_8h_ad45fc7d5b790db748a412a33e2ce14f9}\label{_exception_8h_ad45fc7d5b790db748a412a33e2ce14f9}} 
+bool {\bfseries match\+Pattern} (const string \&name)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class in charge of the exception handling. 
+
+\begin{DoxyAuthor}{Author}
+Laura C\+E\+R\+ON 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+6 nov. 2018
+\end{DoxyDate}
+This class has the functions to check whether there is an exception of existance or a pattern 
