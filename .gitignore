@@ -10,3 +10,4 @@ TP1/cliserv/*
 *.lo
 *.o
 *.obj
+*.class
