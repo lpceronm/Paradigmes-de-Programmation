@@ -1,3 +1,10 @@
+/*!
+ * \file
+ * \brief  Photo class 
+ * \author Laura CERON
+ * \date   6 nov. 2018
+ *  
+ */
 #ifndef PHOTO_H
 #define PHOTO_H
 

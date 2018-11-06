@@ -1,3 +1,11 @@
+/*!
+ * \file
+ * \brief  Server Main class 
+ * \author Laura CERON
+ * \date   6 nov. 2018
+ *  
+ */
+
 #ifndef SERVER_M
 #define SERVER_M
 

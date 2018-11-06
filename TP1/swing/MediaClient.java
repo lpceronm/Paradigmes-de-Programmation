@@ -1,3 +1,10 @@
+/*!
+ * \file
+ * \brief  MediaClient class 
+ * \author Laura CERON
+ * \date   6 nov. 2018
+ *  
+ */
 import java.io.*;
 import java.net.*;
 

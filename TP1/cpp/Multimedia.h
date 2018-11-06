@@ -1,3 +1,10 @@
+/*!
+ * \file
+ * \brief  Multimedia class 
+ * \author Laura CERON
+ * \date   6 nov. 2018
+ *  
+ */
 #ifndef MULTIMEDIA_H
 #define MULTIMEDIA_H
 

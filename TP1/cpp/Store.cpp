@@ -1,3 +1,10 @@
+/*!
+ * \file
+ * \brief  Store class 
+ * \author Laura CERON
+ * \date   6 nov. 2018
+ *  
+ */
 #include "Store.h"
 #include "Exception.h"
 

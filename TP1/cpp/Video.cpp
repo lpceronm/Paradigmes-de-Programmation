@@ -1,3 +1,10 @@
+/*!
+ * \file
+ * \brief  Video class 
+ * \author Laura CERON
+ * \date   6 nov. 2018
+ *  
+ */
 #include "Video.h"
 #include "Multimedia.h"
 

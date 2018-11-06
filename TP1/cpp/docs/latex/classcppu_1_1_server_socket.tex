@@ -1,0 +1,139 @@
+\hypertarget{classcppu_1_1_server_socket}{}\section{cppu\+:\+:Server\+Socket Class Reference}
+\label{classcppu_1_1_server_socket}\index{cppu::ServerSocket@{cppu::ServerSocket}}
+
+
+T\+C\+P/\+IP server socket. This class implements a T\+C\+P/\+IP socket that waits for requests to come in over the network. A\+F\+\_\+\+I\+N\+ET connections following the I\+Pv4 Internet protocol are supported.  
+
+
+
+
+{\ttfamily \#include $<$cppsocket.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classcppu_1_1_server_socket_a57138f5a7d2e8af35228c8985385c494}\label{classcppu_1_1_server_socket_a57138f5a7d2e8af35228c8985385c494}} 
+\mbox{\hyperlink{classcppu_1_1_server_socket_a57138f5a7d2e8af35228c8985385c494}{Server\+Socket}} ()
+\begin{DoxyCompactList}\small\item\em Creates a new server socket. Creates a listening socket that waits for connection requests by T\+C\+P/\+IP clients. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classcppu_1_1_socket}{Socket}} $\ast$ \mbox{\hyperlink{classcppu_1_1_server_socket_af08ebcb886fc778d195fb622f7b96b8b}{accept}} ()
+\begin{DoxyCompactList}\small\item\em Accepts a new connection request and returns the corresponding socket. By default, this function blocks the caller until a connection is present. \end{DoxyCompactList}\item 
+virtual int \mbox{\hyperlink{classcppu_1_1_server_socket_a255dfdccba51c7cdbcb6733c6c3f6ffa}{bind}} (int port, int backlog=50)
+\begin{DoxyCompactList}\small\item\em Assigns the socket to the local address. The socket must be bound before using it. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classcppu_1_1_server_socket_ae7647cfb5beaf504a846f6ecfdd197c4}\label{classcppu_1_1_server_socket_ae7647cfb5beaf504a846f6ecfdd197c4}} 
+virtual int \mbox{\hyperlink{classcppu_1_1_server_socket_ae7647cfb5beaf504a846f6ecfdd197c4}{close}} ()
+\begin{DoxyCompactList}\small\item\em Closes the socket. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classcppu_1_1_server_socket_a9e64d9443686fcfdce6b2c4386597e3b}\label{classcppu_1_1_server_socket_a9e64d9443686fcfdce6b2c4386597e3b}} 
+bool \mbox{\hyperlink{classcppu_1_1_server_socket_a9e64d9443686fcfdce6b2c4386597e3b}{is\+Closed}} () const
+\begin{DoxyCompactList}\small\item\em Returns true if the socket has been closed. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classcppu_1_1_server_socket_a905d85f63fdca46ed5ee44eb00e211d1}\label{classcppu_1_1_server_socket_a905d85f63fdca46ed5ee44eb00e211d1}} 
+int \mbox{\hyperlink{classcppu_1_1_server_socket_a905d85f63fdca46ed5ee44eb00e211d1}{descriptor}} ()
+\begin{DoxyCompactList}\small\item\em Returns the Unix descriptor of the socket. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classcppu_1_1_server_socket_a0fbd0ee42bcfecf2e749279c4b94b0b3}\label{classcppu_1_1_server_socket_a0fbd0ee42bcfecf2e749279c4b94b0b3}} 
+int \mbox{\hyperlink{classcppu_1_1_server_socket_a0fbd0ee42bcfecf2e749279c4b94b0b3}{set\+Receive\+Buffer\+Size}} (int size)
+\begin{DoxyCompactList}\small\item\em Sets the S\+O\+\_\+\+R\+C\+V\+B\+UF option to the specified value. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classcppu_1_1_server_socket_a09d0494cc0f65abe496b9c940d2920ed}\label{classcppu_1_1_server_socket_a09d0494cc0f65abe496b9c940d2920ed}} 
+int \mbox{\hyperlink{classcppu_1_1_server_socket_a09d0494cc0f65abe496b9c940d2920ed}{set\+Reuse\+Address}} (bool)
+\begin{DoxyCompactList}\small\item\em Enables/disables the S\+O\+\_\+\+R\+E\+U\+S\+E\+A\+D\+DR socket option. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classcppu_1_1_server_socket_a0ceb984eab0cdd9c7c8e62658a521175}\label{classcppu_1_1_server_socket_a0ceb984eab0cdd9c7c8e62658a521175}} 
+int \mbox{\hyperlink{classcppu_1_1_server_socket_a0ceb984eab0cdd9c7c8e62658a521175}{set\+So\+Timeout}} (int timeout)
+\begin{DoxyCompactList}\small\item\em Enables/disables S\+O\+\_\+\+T\+I\+M\+E\+O\+UT with the specified timeout (in milliseconds). \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classcppu_1_1_server_socket_ac5f6da333208cce9ca4d5392259a0a6b}\label{classcppu_1_1_server_socket_ac5f6da333208cce9ca4d5392259a0a6b}} 
+int \mbox{\hyperlink{classcppu_1_1_server_socket_ac5f6da333208cce9ca4d5392259a0a6b}{set\+Tcp\+No\+Delay}} (bool)
+\begin{DoxyCompactList}\small\item\em Turns on/off T\+CP coalescence (useful in some cases to avoid delays). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classcppu_1_1_server_socket_a23d038275576d0a969072eb334f7b84f}\label{classcppu_1_1_server_socket_a23d038275576d0a969072eb334f7b84f}} 
+virtual \mbox{\hyperlink{classcppu_1_1_socket}{Socket}} $\ast$ {\bfseries create\+Socket} (int sockfd)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+T\+C\+P/\+IP server socket. This class implements a T\+C\+P/\+IP socket that waits for requests to come in over the network. A\+F\+\_\+\+I\+N\+ET connections following the I\+Pv4 Internet protocol are supported. 
+
+\begin{DoxyNote}{Note}
+T\+C\+P/\+IP sockets do not preserve record boundaries, 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classcppu_1_1_socket_buffer}{Socket\+Buffer}} for a solution. 
+\end{DoxySeeAlso}
+
+
+Definition at line 197 of file cppsocket.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classcppu_1_1_server_socket_af08ebcb886fc778d195fb622f7b96b8b}\label{classcppu_1_1_server_socket_af08ebcb886fc778d195fb622f7b96b8b}} 
+\index{cppu::ServerSocket@{cppu::ServerSocket}!accept@{accept}}
+\index{accept@{accept}!cppu::ServerSocket@{cppu::ServerSocket}}
+\subsubsection{\texorpdfstring{accept()}{accept()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcppu_1_1_socket}{Socket}} $\ast$ cppu\+::\+Server\+Socket\+::accept (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Accepts a new connection request and returns the corresponding socket. By default, this function blocks the caller until a connection is present. 
+
+\begin{DoxyReturn}{Returns}
+the new \mbox{\hyperlink{classcppu_1_1_socket}{Socket}} or nullptr on error. 
+\end{DoxyReturn}
+
+
+Definition at line 188 of file cppsocket.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{188                                \{}
+\DoxyCodeLine{189     \textcolor{keywordtype}{int} sock\_com = -1;}
+\DoxyCodeLine{190     \textcolor{comment}{// cf. man -s 3n accept, attention EINTR ou EWOULBLOCK ne sont pas geres!}}
+\DoxyCodeLine{191     \textcolor{keywordflow}{if} ((sock\_com = ::\mbox{\hyperlink{classcppu_1_1_server_socket_af08ebcb886fc778d195fb622f7b96b8b}{accept}}(\_sockfd, NULL, NULL)) < 0) \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{192     \textcolor{keywordflow}{else} \textcolor{keywordflow}{return} createSocket(sock\_com);}
+\DoxyCodeLine{193   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classcppu_1_1_server_socket_a255dfdccba51c7cdbcb6733c6c3f6ffa}\label{classcppu_1_1_server_socket_a255dfdccba51c7cdbcb6733c6c3f6ffa}} 
+\index{cppu::ServerSocket@{cppu::ServerSocket}!bind@{bind}}
+\index{bind@{bind}!cppu::ServerSocket@{cppu::ServerSocket}}
+\subsubsection{\texorpdfstring{bind()}{bind()}}
+{\footnotesize\ttfamily int cppu\+::\+Server\+Socket\+::bind (\begin{DoxyParamCaption}\item[{int}]{port,  }\item[{int}]{backlog = {\ttfamily 50} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Assigns the socket to the local address. The socket must be bound before using it. 
+
+\begin{DoxyReturn}{Returns}
+0 on success or a negative value on error which is one of \mbox{\hyperlink{classcppu_1_1_socket_a49ea5cb079bd7ae97ecf7eb30c9d9e5f}{Socket\+::\+Errors}} 
+\end{DoxyReturn}
+
+
+Definition at line 158 of file cppsocket.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{158                                               \{}
+\DoxyCodeLine{159     \textcolor{keywordflow}{if} (\_sockfd < 0) \textcolor{keywordflow}{return} Socket::InvalidSocket;}
+\DoxyCodeLine{160     \textcolor{comment}{// ne marche que pour IN4 !}}
+\DoxyCodeLine{161     \textcolor{keyword}{struct }sockaddr\_in addr = \{0\}; \textcolor{comment}{//memset(\&addr, 0, sizeof(addr));}}
+\DoxyCodeLine{162     addr.sin\_family = AF\_INET;}
+\DoxyCodeLine{163     addr.sin\_port = htons(port);}
+\DoxyCodeLine{164     addr.sin\_addr.s\_addr = INADDR\_ANY;}
+\DoxyCodeLine{165     }
+\DoxyCodeLine{166     \textcolor{keywordflow}{if} (::\mbox{\hyperlink{classcppu_1_1_server_socket_a255dfdccba51c7cdbcb6733c6c3f6ffa}{bind}}(\_sockfd, (\textcolor{keyword}{struct} sockaddr*)\&addr, \textcolor{keyword}{sizeof}(addr)) < 0) \textcolor{keywordflow}{return} -1;}
+\DoxyCodeLine{167     \textcolor{comment}{// verifications sur le serveur}}
+\DoxyCodeLine{168     socklen\_t taille = \textcolor{keyword}{sizeof} addr;}
+\DoxyCodeLine{169     \textcolor{keywordflow}{if} (::getsockname(\_sockfd, (\textcolor{keyword}{struct} sockaddr*)\&addr, \&taille) < 0) \textcolor{keywordflow}{return} -1;}
+\DoxyCodeLine{170     }
+\DoxyCodeLine{171     \textcolor{comment}{// le serveur se met en attente sur le socket d'ecoute}}
+\DoxyCodeLine{172     \textcolor{comment}{// listen s'applique seulement aux sockets de type SOCK\_STREAM ou SOCK\_SEQPACKET.}}
+\DoxyCodeLine{173     \textcolor{keywordflow}{if} (::listen(\_sockfd, backlog) < 0) \textcolor{keywordflow}{return} -1;}
+\DoxyCodeLine{174     \textcolor{comment}{// port = ntohs(addr.sin\_port);}}
+\DoxyCodeLine{175     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{176   \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+cppsocket.\+h\item 
+cppsocket.\+cpp\end{DoxyCompactItemize}

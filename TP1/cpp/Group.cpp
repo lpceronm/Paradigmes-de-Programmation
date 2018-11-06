@@ -1,3 +1,10 @@
+/*!
+ * \file
+ * \brief  Group class 
+ * \author Laura CERON
+ * \date   6 nov. 2018
+ *  
+ */
 #include "Multimedia.h"
 #include "Group.h"
 

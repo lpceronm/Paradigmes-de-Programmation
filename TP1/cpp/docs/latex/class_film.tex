@@ -1,0 +1,114 @@
+\hypertarget{class_film}{}\section{Film Class Reference}
+\label{class_film}\index{Film@{Film}}
+Inheritance diagram for Film\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_film}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_film_acbea47f801a1c038a266922bb50b90c5}{Film}} (const string \&name, const string \&path, int duration, int size, const int $\ast$chapter)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_film}{Film}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_film_a34c9de2efb9554ce1192e4110d98806b}{Film}} (const \mbox{\hyperlink{class_film}{Film}} \&)
+\begin{DoxyCompactList}\small\item\em Copy constructor of the \mbox{\hyperlink{class_film}{Film}} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_film_a2691ad8cf20210033cc35a6aa28e8553}\label{class_film_a2691ad8cf20210033cc35a6aa28e8553}} 
+\mbox{\hyperlink{class_film}{Film}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_film}{Film}} \&)
+\item 
+\mbox{\Hypertarget{class_film_a7e21757cca760f99dd0bdd5857b20af8}\label{class_film_a7e21757cca760f99dd0bdd5857b20af8}} 
+void {\bfseries set\+Chapters} (const int $\ast$chapter, int size)
+\item 
+\mbox{\Hypertarget{class_film_a7bdcc9cb81df92862f98b3b6b286ab4a}\label{class_film_a7bdcc9cb81df92862f98b3b6b286ab4a}} 
+const int $\ast$ {\bfseries get\+Chapters} () const
+\item 
+\mbox{\Hypertarget{class_film_a312be28a44c85daf94f86164c64cd83d}\label{class_film_a312be28a44c85daf94f86164c64cd83d}} 
+const int {\bfseries get\+Chap\+Number} ()
+\item 
+\mbox{\Hypertarget{class_film_a057657b26f710f1c8d5e8782668c7468}\label{class_film_a057657b26f710f1c8d5e8782668c7468}} 
+const char $\ast$ {\bfseries class\+Name} () const
+\item 
+\mbox{\Hypertarget{class_film_a7bb425655e5334ae5757b6f03b5c73a4}\label{class_film_a7bb425655e5334ae5757b6f03b5c73a4}} 
+void {\bfseries show} (ostream \&s)
+\item 
+\mbox{\Hypertarget{class_film_a5c2b9cb5c289e95e254e2bda8a5ad273}\label{class_film_a5c2b9cb5c289e95e254e2bda8a5ad273}} 
+void {\bfseries write} (ostream \&os)
+\item 
+\mbox{\Hypertarget{class_film_ac2a4fb9a82e62bc7ffc728461d1d829d}\label{class_film_ac2a4fb9a82e62bc7ffc728461d1d829d}} 
+void {\bfseries read} (istream \&is)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 14 of file Film.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_film_acbea47f801a1c038a266922bb50b90c5}\label{class_film_acbea47f801a1c038a266922bb50b90c5}} 
+\index{Film@{Film}!Film@{Film}}
+\index{Film@{Film}!Film@{Film}}
+\subsubsection{\texorpdfstring{Film()}{Film()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Film\+::\+Film (\begin{DoxyParamCaption}\item[{const string \&}]{name,  }\item[{const string \&}]{path,  }\item[{int}]{duration,  }\item[{int}]{size,  }\item[{const int $\ast$}]{chapter }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{class_film}{Film}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+{\em path} & \\
+\hline
+{\em duration} & \\
+\hline
+{\em size} & \\
+\hline
+{\em chapter} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 14 of file Film.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{14                                                                                              : }
+\DoxyCodeLine{15   \mbox{\hyperlink{class_video}{Video}}(name, path, duration), chapNumber(size), chapters(\textcolor{keyword}{new} \textcolor{keywordtype}{int}[size])\{}
+\DoxyCodeLine{16   copyChapters(size, chapter);}
+\DoxyCodeLine{17   \textcolor{comment}{// memcpy(chapters, chapter, size * (sizeof(chapter)));}}
+\DoxyCodeLine{18 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_film_a34c9de2efb9554ce1192e4110d98806b}\label{class_film_a34c9de2efb9554ce1192e4110d98806b}} 
+\index{Film@{Film}!Film@{Film}}
+\index{Film@{Film}!Film@{Film}}
+\subsubsection{\texorpdfstring{Film()}{Film()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Film\+::\+Film (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_film}{Film}} \&}]{from }\end{DoxyParamCaption})}
+
+
+
+Copy constructor of the \mbox{\hyperlink{class_film}{Film}} object. 
+
+
+
+Definition at line 20 of file Film.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{20                           : \mbox{\hyperlink{class_video}{Video}}(from)\{ }
+\DoxyCodeLine{21   chapNumber = from.chapNumber;}
+\DoxyCodeLine{22   chapters = \textcolor{keyword}{new} \textcolor{keywordtype}{int}[from.chapNumber];}
+\DoxyCodeLine{23   \textcolor{keywordflow}{if} (from.chapters)  copyChapters(from.chapNumber, from.chapters);}
+\DoxyCodeLine{24 \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_film_8h}{Film.\+h}}\item 
+\mbox{\hyperlink{_film_8cpp}{Film.\+cpp}}\end{DoxyCompactItemize}

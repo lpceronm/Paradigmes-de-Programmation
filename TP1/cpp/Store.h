@@ -1,3 +1,10 @@
+/*!
+ * \file
+ * \brief  Store class 
+ * \author Laura CERON
+ * \date   6 nov. 2018
+ *  
+ */
 #ifndef STORE_H
 #define STORE_H
 

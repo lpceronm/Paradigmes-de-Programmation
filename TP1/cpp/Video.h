@@ -1,3 +1,10 @@
+/*!
+ * \file
+ * \brief  Video class 
+ * \author Laura CERON
+ * \date   6 nov. 2018
+ *  
+ */
 #ifndef VIDEO_H
 #define VIDEO_H
 

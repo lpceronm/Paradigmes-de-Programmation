@@ -1,3 +1,11 @@
+/*!
+ * \file
+ * \brief  TestMain class 
+ * \author Laura CERON
+ * \date   6 nov. 2018
+ *  
+ */
+
 #ifndef TEST_M
 #define TEST_M
 

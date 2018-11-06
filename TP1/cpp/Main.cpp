@@ -1,4 +1,10 @@
-
+/*!
+ * \file
+ * \brief  Main class 
+ * \author Laura CERON
+ * \date   6 nov. 2018
+ *  
+ */
 // #define TEST_VERSION
 #define SERVER_VERSION
 

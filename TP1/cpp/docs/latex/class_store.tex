@@ -1,0 +1,617 @@
+\hypertarget{class_store}{}\section{Store Class Reference}
+\label{class_store}\index{Store@{Store}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_store_a5f58eadcb7385d5a5aa6830daef84f7d}\label{class_store_a5f58eadcb7385d5a5aa6830daef84f7d}} 
+\mbox{\hyperlink{class_store_a5f58eadcb7385d5a5aa6830daef84f7d}{Store}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_store}{Store}}\+:\+: \mbox{\hyperlink{class_store}{Store}} object The \mbox{\hyperlink{class_store}{Store}} constructor initializes the request maps which has the possible requests from a client. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_store_a4fd725fdb2de0632ed98bfbd131c2512}{$\sim$\+Store}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{class_store}{Store}} object. \end{DoxyCompactList}\item 
+Smt \mbox{\hyperlink{class_store_a9d97fd0e6e2a8cf0fd90b1b75c9cdaaf}{create\+Photo}} (const string \&name, const string \&path, double latitude, double longitude)
+\begin{DoxyCompactList}\small\item\em create\+Photo returns a smart pointer of type Smt \end{DoxyCompactList}\item 
+Smt \mbox{\hyperlink{class_store_abbe18026f085a4a61af546b14be7ebaa}{create\+Photo}} (const string \&name)
+\item 
+Smt \mbox{\hyperlink{class_store_a510695513f26f4c5d5760a7683776d45}{create\+Video}} (const string \&name, const string \&path, double duration)
+\begin{DoxyCompactList}\small\item\em create\+Video returns a smart pointer of type Smt, recieves all the attributes to create a \mbox{\hyperlink{class_video}{Video}} \end{DoxyCompactList}\item 
+Smt \mbox{\hyperlink{class_store_a86607684901d56a562eef093ece5d09e}{create\+Video}} (const string \&name)
+\begin{DoxyCompactList}\small\item\em create\+Video returns a smart pointer of type Smt, recieves all the attributes to create a \mbox{\hyperlink{class_video}{Video}} \end{DoxyCompactList}\item 
+Smt \mbox{\hyperlink{class_store_a34de901d3285715123d39663b2ffd166}{create\+Film}} (const string \&name, const string \&path, int duration, int size, const int $\ast$chapter)
+\begin{DoxyCompactList}\small\item\em create\+Film returns a smart pointer of type Smt, recieves all the attributes to create a \mbox{\hyperlink{class_film}{Film}} \end{DoxyCompactList}\item 
+Smt \mbox{\hyperlink{class_store_ab466abf10ca0fa808477fc9c097d5421}{create\+Film}} (const string \&name)
+\begin{DoxyCompactList}\small\item\em create\+Film returns a smart pointer of type Smt, recieves the name to create a \mbox{\hyperlink{class_film}{Film}} \end{DoxyCompactList}\item 
+Sgr \mbox{\hyperlink{class_store_a0be2d64e1f5104c0515330e180d700f1}{create\+Group}} (const string \&name)
+\begin{DoxyCompactList}\small\item\em create\+Group returns a smart pointer of type Sgr, recieves all the attributes to create a \mbox{\hyperlink{class_group}{Group}} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_store_a17e928204e65fbf4a2ddf0f091a6bb5c}{show\+All}} (const string \&name, ostream \&s)
+\begin{DoxyCompactList}\small\item\em show\+All shows all the elements in the database \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_store_aca9d101ffa9d85c568e44036c719efa7}{show\+Element}} (const string \&name, ostream \&s)
+\begin{DoxyCompactList}\small\item\em show\+Element given a name shows an specific element in the database. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_store_acf64c23294d6ed1c1c307664751df6d5}{play\+Element}} (const string \&name, ostream \&s)
+\begin{DoxyCompactList}\small\item\em play\+Element given a name plays an specific element in the database. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_store_adc2051c35c1f083d41c45befa7ed1705}{delete\+Element}} (const string \&name, ostream \&s)
+\begin{DoxyCompactList}\small\item\em delete\+Element given a name delets an specific element in the database. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_store_a831850472744da75479fde965ea88e29}\label{class_store_a831850472744da75479fde965ea88e29}} 
+void {\bfseries delete\+Group} (const string \&name, ostream \&s)
+\item 
+Smt \mbox{\hyperlink{class_store_aeb47bc82c25f6383e43707ff2a468f5a}{create\+Mult}} (const string \&clss, istream \&is)
+\begin{DoxyCompactList}\small\item\em create\+Mult is the factory to create an object given a class name. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_store_a0762cd9f13a3ec185154dc3a1b2f5fb6}{save}} (const string \&output\+Name)
+\begin{DoxyCompactList}\small\item\em save creates a file with all the elements in the database. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_store_ad6d88f738afb50566377094429183bf2}\label{class_store_ad6d88f738afb50566377094429183bf2}} 
+bool {\bfseries load} (const string \&input\+Name)
+\item 
+\mbox{\Hypertarget{class_store_aa232b7e346e9054969bf6f3a5314d6f9}\label{class_store_aa232b7e346e9054969bf6f3a5314d6f9}} 
+bool {\bfseries process\+Request} (\mbox{\hyperlink{classcppu_1_1_t_c_p_connection}{T\+C\+P\+Connection}} \&cnx, const string \&request, string \&response)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 31 of file Store.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_store_a4fd725fdb2de0632ed98bfbd131c2512}\label{class_store_a4fd725fdb2de0632ed98bfbd131c2512}} 
+\index{Store@{Store}!````~Store@{$\sim$Store}}
+\index{````~Store@{$\sim$Store}!Store@{Store}}
+\subsubsection{\texorpdfstring{$\sim$Store()}{~Store()}}
+{\footnotesize\ttfamily Store\+::$\sim$\+Store (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroy the \mbox{\hyperlink{class_store}{Store}} object. 
+
+
+
+Definition at line 27 of file Store.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{27              \{}
+\DoxyCodeLine{28   cout << \textcolor{stringliteral}{"Deleted Store \(\backslash\)n"};}
+\DoxyCodeLine{29 \}}
+
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_store_a34de901d3285715123d39663b2ffd166}\label{class_store_a34de901d3285715123d39663b2ffd166}} 
+\index{Store@{Store}!createFilm@{createFilm}}
+\index{createFilm@{createFilm}!Store@{Store}}
+\subsubsection{\texorpdfstring{createFilm()}{createFilm()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Smt Store\+::create\+Film (\begin{DoxyParamCaption}\item[{const string \&}]{name,  }\item[{const string \&}]{path,  }\item[{int}]{duration,  }\item[{int}]{size,  }\item[{const int $\ast$}]{chapter }\end{DoxyParamCaption})}
+
+
+
+create\+Film returns a smart pointer of type Smt, recieves all the attributes to create a \mbox{\hyperlink{class_film}{Film}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+{\em path} & \\
+\hline
+{\em duration} & \\
+\hline
+{\em size} & \\
+\hline
+{\em chapter} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Smt 
+\end{DoxyReturn}
+
+
+Definition at line 132 of file Store.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{133                                              \{}
+\DoxyCodeLine{134   \textcolor{keywordflow}{try}\{}
+\DoxyCodeLine{135     matchPattern(name);}
+\DoxyCodeLine{136     existsElement(mediaFolder, name);}
+\DoxyCodeLine{137     mediaFolder[name] = Smt(\textcolor{keyword}{new} \mbox{\hyperlink{class_film}{Film}}(name, path, duration, size, chapter));}
+\DoxyCodeLine{138     \textcolor{keywordflow}{return} mediaFolder[name];}
+\DoxyCodeLine{139   \}\textcolor{keywordflow}{catch} (\mbox{\hyperlink{struct_existence_exception}{ExistenceException}} \&e)\{}
+\DoxyCodeLine{140     std::cerr << \textcolor{stringliteral}{"The film: "} << e.exc << \textcolor{stringliteral}{" already exists.  "} << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{141     \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{142   \}\textcolor{keywordflow}{catch} (\mbox{\hyperlink{struct_pattern_exception}{PatternException}} \& e)\{}
+\DoxyCodeLine{143     std::cerr << e.exc << \textcolor{stringliteral}{": doesn't have a permitted pattern"} << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{144     \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{145   \}}
+\DoxyCodeLine{146 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_store_ab466abf10ca0fa808477fc9c097d5421}\label{class_store_ab466abf10ca0fa808477fc9c097d5421}} 
+\index{Store@{Store}!createFilm@{createFilm}}
+\index{createFilm@{createFilm}!Store@{Store}}
+\subsubsection{\texorpdfstring{createFilm()}{createFilm()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Smt Store\+::create\+Film (\begin{DoxyParamCaption}\item[{const string \&}]{name }\end{DoxyParamCaption})}
+
+
+
+create\+Film returns a smart pointer of type Smt, recieves the name to create a \mbox{\hyperlink{class_film}{Film}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Smt 
+\end{DoxyReturn}
+
+
+Definition at line 154 of file Store.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{154                                        \{}
+\DoxyCodeLine{155   \textcolor{keywordflow}{try}\{}
+\DoxyCodeLine{156     matchPattern(name);}
+\DoxyCodeLine{157     existsElement(mediaFolder, name);}
+\DoxyCodeLine{158     mediaFolder[name] = Smt(\textcolor{keyword}{new} \mbox{\hyperlink{class_film}{Film}}());}
+\DoxyCodeLine{159     mediaFolder[name]->setName(name);}
+\DoxyCodeLine{160     \textcolor{keywordflow}{return} mediaFolder[name];}
+\DoxyCodeLine{161   \}\textcolor{keywordflow}{catch} (\mbox{\hyperlink{struct_existence_exception}{ExistenceException}} \&e)\{}
+\DoxyCodeLine{162     std::cerr << \textcolor{stringliteral}{"The film: "} << e.exc << \textcolor{stringliteral}{" already exists.  "} << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{163     \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{164   \}\textcolor{keywordflow}{catch} (\mbox{\hyperlink{struct_pattern_exception}{PatternException}} \& e)\{}
+\DoxyCodeLine{165     std::cerr << e.exc << \textcolor{stringliteral}{": doesn't have a permitted pattern"} << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{166     \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{167   \}}
+\DoxyCodeLine{168 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_store_a0be2d64e1f5104c0515330e180d700f1}\label{class_store_a0be2d64e1f5104c0515330e180d700f1}} 
+\index{Store@{Store}!createGroup@{createGroup}}
+\index{createGroup@{createGroup}!Store@{Store}}
+\subsubsection{\texorpdfstring{createGroup()}{createGroup()}}
+{\footnotesize\ttfamily Sgr Store\+::create\+Group (\begin{DoxyParamCaption}\item[{const string \&}]{name }\end{DoxyParamCaption})}
+
+
+
+create\+Group returns a smart pointer of type Sgr, recieves all the attributes to create a \mbox{\hyperlink{class_group}{Group}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Sgr 
+\end{DoxyReturn}
+
+
+Definition at line 177 of file Store.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{177                                         \{}
+\DoxyCodeLine{178   \textcolor{keywordflow}{try}\{}
+\DoxyCodeLine{179     matchPattern(name);}
+\DoxyCodeLine{180     existsGroup(groupFolder, name);}
+\DoxyCodeLine{181     groupFolder[name] = Sgr(\textcolor{keyword}{new} \mbox{\hyperlink{class_group}{Group}}(name));}
+\DoxyCodeLine{182     \textcolor{keywordflow}{return} groupFolder[name];}
+\DoxyCodeLine{183   \}\textcolor{keywordflow}{catch} (\mbox{\hyperlink{struct_existence_exception}{ExistenceException}} \&e)\{}
+\DoxyCodeLine{184     std::cerr << \textcolor{stringliteral}{"The group: "} << e.exc << \textcolor{stringliteral}{" already exists.  "} << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{185     \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{186   \}\textcolor{keywordflow}{catch} (\mbox{\hyperlink{struct_pattern_exception}{PatternException}} \& e)\{}
+\DoxyCodeLine{187     std::cerr << e.exc << \textcolor{stringliteral}{": doesn't have a permitted pattern"} << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{188     \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{189   \}}
+\DoxyCodeLine{190 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_store_aeb47bc82c25f6383e43707ff2a468f5a}\label{class_store_aeb47bc82c25f6383e43707ff2a468f5a}} 
+\index{Store@{Store}!createMult@{createMult}}
+\index{createMult@{createMult}!Store@{Store}}
+\subsubsection{\texorpdfstring{createMult()}{createMult()}}
+{\footnotesize\ttfamily Smt Store\+::create\+Mult (\begin{DoxyParamCaption}\item[{const string \&}]{clss,  }\item[{istream \&}]{is }\end{DoxyParamCaption})}
+
+
+
+create\+Mult is the factory to create an object given a class name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em clss} & \\
+\hline
+{\em is} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Smt 
+\end{DoxyReturn}
+
+
+Definition at line 299 of file Store.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{299                                                     \{}
+\DoxyCodeLine{300   \textcolor{keywordtype}{string} name;}
+\DoxyCodeLine{301   \textcolor{keywordflow}{if} (clss.compare(\textcolor{stringliteral}{"Photo"}) == 0)\{}
+\DoxyCodeLine{302     getline(is, name);}
+\DoxyCodeLine{303     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_store_a9d97fd0e6e2a8cf0fd90b1b75c9cdaaf}{createPhoto}}(name);}
+\DoxyCodeLine{304   \}}
+\DoxyCodeLine{305   \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (clss.compare(\textcolor{stringliteral}{"Video"}) == 0)\{}
+\DoxyCodeLine{306     getline(is, name);}
+\DoxyCodeLine{307     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_store_a510695513f26f4c5d5760a7683776d45}{createVideo}}(name);}
+\DoxyCodeLine{308   \}\textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (clss.compare(\textcolor{stringliteral}{"Film"}) == 0)\{}
+\DoxyCodeLine{309     getline(is, name);}
+\DoxyCodeLine{310     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_store_a34de901d3285715123d39663b2ffd166}{createFilm}}(name);}
+\DoxyCodeLine{311   \}\textcolor{keywordflow}{else}}
+\DoxyCodeLine{312     \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{313 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_store_a9d97fd0e6e2a8cf0fd90b1b75c9cdaaf}\label{class_store_a9d97fd0e6e2a8cf0fd90b1b75c9cdaaf}} 
+\index{Store@{Store}!createPhoto@{createPhoto}}
+\index{createPhoto@{createPhoto}!Store@{Store}}
+\subsubsection{\texorpdfstring{createPhoto()}{createPhoto()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Smt Store\+::create\+Photo (\begin{DoxyParamCaption}\item[{const string \&}]{name,  }\item[{const string \&}]{path,  }\item[{double}]{latitude,  }\item[{double}]{longitude }\end{DoxyParamCaption})}
+
+
+
+create\+Photo returns a smart pointer of type Smt 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+{\em path} & \\
+\hline
+{\em latitude} & \\
+\hline
+{\em longitude} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Smt 
+\end{DoxyReturn}
+
+
+Definition at line 40 of file Store.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{41                                     \{}
+\DoxyCodeLine{42   \textcolor{keywordflow}{try}\{}
+\DoxyCodeLine{43     matchPattern(name);}
+\DoxyCodeLine{44     existsElement(mediaFolder, name);}
+\DoxyCodeLine{45     mediaFolder[name] = Smt(\textcolor{keyword}{new} \mbox{\hyperlink{class_photo}{Photo}}(name, path, latitude, longitude));}
+\DoxyCodeLine{46     \textcolor{keywordflow}{return} mediaFolder[name];}
+\DoxyCodeLine{47   \}\textcolor{keywordflow}{catch} (\mbox{\hyperlink{struct_existence_exception}{ExistenceException}} \&e)\{}
+\DoxyCodeLine{48     std::cerr << \textcolor{stringliteral}{"The photo: "} << e.exc << \textcolor{stringliteral}{" already exists"} << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{49     \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{50   \}\textcolor{keywordflow}{catch} (\mbox{\hyperlink{struct_pattern_exception}{PatternException}} \& e)\{}
+\DoxyCodeLine{51     std::cerr << e.exc << \textcolor{stringliteral}{": doesn't have a permitted pattern"} << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{52     \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{53   \}}
+\DoxyCodeLine{54 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_store_abbe18026f085a4a61af546b14be7ebaa}\label{class_store_abbe18026f085a4a61af546b14be7ebaa}} 
+\index{Store@{Store}!createPhoto@{createPhoto}}
+\index{createPhoto@{createPhoto}!Store@{Store}}
+\subsubsection{\texorpdfstring{createPhoto()}{createPhoto()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Smt Store\+::create\+Photo (\begin{DoxyParamCaption}\item[{const string \&}]{name }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Smt 
+\end{DoxyReturn}
+
+
+Definition at line 62 of file Store.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{62                                         \{}
+\DoxyCodeLine{63   \textcolor{keywordflow}{try}\{}
+\DoxyCodeLine{64     matchPattern(name);}
+\DoxyCodeLine{65     existsElement(mediaFolder, name);}
+\DoxyCodeLine{66     mediaFolder[name] = Smt(\textcolor{keyword}{new} \mbox{\hyperlink{class_photo}{Photo}}());}
+\DoxyCodeLine{67     mediaFolder[name]->setName(name);}
+\DoxyCodeLine{68     \textcolor{keywordflow}{return} mediaFolder[name];}
+\DoxyCodeLine{69   \}\textcolor{keywordflow}{catch} (\mbox{\hyperlink{struct_existence_exception}{ExistenceException}} \&e)\{}
+\DoxyCodeLine{70     std::cerr << \textcolor{stringliteral}{"The photo: "} << e.exc << \textcolor{stringliteral}{" already exists"} << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{71     \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{72   \}\textcolor{keywordflow}{catch} (\mbox{\hyperlink{struct_pattern_exception}{PatternException}} \& e)\{}
+\DoxyCodeLine{73     std::cerr << e.exc << \textcolor{stringliteral}{": doesn't have a permitted pattern"} << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{74     \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{75   \}}
+\DoxyCodeLine{76 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_store_a510695513f26f4c5d5760a7683776d45}\label{class_store_a510695513f26f4c5d5760a7683776d45}} 
+\index{Store@{Store}!createVideo@{createVideo}}
+\index{createVideo@{createVideo}!Store@{Store}}
+\subsubsection{\texorpdfstring{createVideo()}{createVideo()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Smt Store\+::create\+Video (\begin{DoxyParamCaption}\item[{const string \&}]{name,  }\item[{const string \&}]{path,  }\item[{double}]{duration }\end{DoxyParamCaption})}
+
+
+
+create\+Video returns a smart pointer of type Smt, recieves all the attributes to create a \mbox{\hyperlink{class_video}{Video}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+{\em path} & \\
+\hline
+{\em duration} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Smt 
+\end{DoxyReturn}
+
+
+Definition at line 86 of file Store.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{86                                                                              \{}
+\DoxyCodeLine{87   \textcolor{keywordflow}{try}\{}
+\DoxyCodeLine{88     matchPattern(name);}
+\DoxyCodeLine{89     existsElement(mediaFolder, name);}
+\DoxyCodeLine{90     mediaFolder[name] = Smt(\textcolor{keyword}{new} \mbox{\hyperlink{class_video}{Video}}(name, path, duration));}
+\DoxyCodeLine{91     \textcolor{keywordflow}{return} mediaFolder[name];}
+\DoxyCodeLine{92   \}\textcolor{keywordflow}{catch} (\mbox{\hyperlink{struct_existence_exception}{ExistenceException}} \&e)\{}
+\DoxyCodeLine{93     std::cerr << \textcolor{stringliteral}{"The video: "} << e.exc << \textcolor{stringliteral}{" already exists"} << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{94     \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{95   \}\textcolor{keywordflow}{catch} (\mbox{\hyperlink{struct_pattern_exception}{PatternException}} \& e)\{}
+\DoxyCodeLine{96     std::cerr << e.exc << \textcolor{stringliteral}{": doesn't have a permitted pattern"} << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{97     \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{98   \}}
+\DoxyCodeLine{99 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_store_a86607684901d56a562eef093ece5d09e}\label{class_store_a86607684901d56a562eef093ece5d09e}} 
+\index{Store@{Store}!createVideo@{createVideo}}
+\index{createVideo@{createVideo}!Store@{Store}}
+\subsubsection{\texorpdfstring{createVideo()}{createVideo()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Smt Store\+::create\+Video (\begin{DoxyParamCaption}\item[{const string \&}]{name }\end{DoxyParamCaption})}
+
+
+
+create\+Video returns a smart pointer of type Smt, recieves all the attributes to create a \mbox{\hyperlink{class_video}{Video}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Smt 
+\end{DoxyReturn}
+
+
+Definition at line 106 of file Store.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{106                                         \{}
+\DoxyCodeLine{107   \textcolor{keywordflow}{try}\{}
+\DoxyCodeLine{108     matchPattern(name);}
+\DoxyCodeLine{109     existsElement(mediaFolder, name);}
+\DoxyCodeLine{110     mediaFolder[name] = Smt(\textcolor{keyword}{new} \mbox{\hyperlink{class_video}{Video}}());}
+\DoxyCodeLine{111     mediaFolder[name]->setName(name);}
+\DoxyCodeLine{112     \textcolor{keywordflow}{return} mediaFolder[name];}
+\DoxyCodeLine{113   \}\textcolor{keywordflow}{catch} (\mbox{\hyperlink{struct_existence_exception}{ExistenceException}} \&e)\{}
+\DoxyCodeLine{114     std::cerr << \textcolor{stringliteral}{"The video: "} << e.exc << \textcolor{stringliteral}{" already exists"} << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{115     \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{116   \}\textcolor{keywordflow}{catch} (\mbox{\hyperlink{struct_pattern_exception}{PatternException}} \& e)\{}
+\DoxyCodeLine{117     std::cerr << e.exc << \textcolor{stringliteral}{": doesn't have a permitted pattern"} << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{118     \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{119   \}}
+\DoxyCodeLine{120 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_store_adc2051c35c1f083d41c45befa7ed1705}\label{class_store_adc2051c35c1f083d41c45befa7ed1705}} 
+\index{Store@{Store}!deleteElement@{deleteElement}}
+\index{deleteElement@{deleteElement}!Store@{Store}}
+\subsubsection{\texorpdfstring{deleteElement()}{deleteElement()}}
+{\footnotesize\ttfamily void Store\+::delete\+Element (\begin{DoxyParamCaption}\item[{const string \&}]{name,  }\item[{ostream \&}]{s }\end{DoxyParamCaption})}
+
+
+
+delete\+Element given a name delets an specific element in the database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+{\em s} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 259 of file Store.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{259                                                        \{}
+\DoxyCodeLine{260   \textcolor{keywordflow}{try}\{}
+\DoxyCodeLine{261     matchPattern(name);}
+\DoxyCodeLine{262     notFoundElement(mediaFolder, name);}
+\DoxyCodeLine{263     \textcolor{keyword}{auto} mult = mediaFolder.find(name);}
+\DoxyCodeLine{264     mult->second.reset();}
+\DoxyCodeLine{265     mediaFolder.erase(mult);}
+\DoxyCodeLine{266     s << \textcolor{stringliteral}{"Deleted: "} << name;}
+\DoxyCodeLine{267   \}\textcolor{keywordflow}{catch} (\mbox{\hyperlink{struct_existence_exception}{ExistenceException}} \&e)\{}
+\DoxyCodeLine{268     s << \textcolor{stringliteral}{"Multimedia element "} << e.exc << \textcolor{stringliteral}{" not found.  "};}
+\DoxyCodeLine{269   \}\textcolor{keywordflow}{catch} (\mbox{\hyperlink{struct_pattern_exception}{PatternException}} \& e)\{}
+\DoxyCodeLine{270     s << e.exc << \textcolor{stringliteral}{": doesn't have a permitted pattern.  "} ;}
+\DoxyCodeLine{271   \}}
+\DoxyCodeLine{272 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_store_acf64c23294d6ed1c1c307664751df6d5}\label{class_store_acf64c23294d6ed1c1c307664751df6d5}} 
+\index{Store@{Store}!playElement@{playElement}}
+\index{playElement@{playElement}!Store@{Store}}
+\subsubsection{\texorpdfstring{playElement()}{playElement()}}
+{\footnotesize\ttfamily void Store\+::play\+Element (\begin{DoxyParamCaption}\item[{const string \&}]{name,  }\item[{ostream \&}]{s }\end{DoxyParamCaption})}
+
+
+
+play\+Element given a name plays an specific element in the database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+{\em s} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 238 of file Store.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{238                                                      \{}
+\DoxyCodeLine{239   \textcolor{keywordflow}{try}\{}
+\DoxyCodeLine{240     matchPattern(name);}
+\DoxyCodeLine{241     notFoundElement(mediaFolder, name);}
+\DoxyCodeLine{242     \textcolor{keyword}{auto} mult = mediaFolder.find(name);}
+\DoxyCodeLine{243     s << \textcolor{stringliteral}{"Playing: "} << name << \textcolor{stringliteral}{"  "};}
+\DoxyCodeLine{244     mult->second->play();}
+\DoxyCodeLine{245   \}\textcolor{keywordflow}{catch} (\mbox{\hyperlink{struct_existence_exception}{ExistenceException}} \&e)\{}
+\DoxyCodeLine{246     s << \textcolor{stringliteral}{"Multimedia element "} << e.exc << \textcolor{stringliteral}{" not found.  "};}
+\DoxyCodeLine{247   \}\textcolor{keywordflow}{catch} (\mbox{\hyperlink{struct_pattern_exception}{PatternException}} \& e)\{}
+\DoxyCodeLine{248     s << e.exc << \textcolor{stringliteral}{": doesn't have a permitted pattern.  "} ;}
+\DoxyCodeLine{249   \}}
+\DoxyCodeLine{250 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_store_a0762cd9f13a3ec185154dc3a1b2f5fb6}\label{class_store_a0762cd9f13a3ec185154dc3a1b2f5fb6}} 
+\index{Store@{Store}!save@{save}}
+\index{save@{save}!Store@{Store}}
+\subsubsection{\texorpdfstring{save()}{save()}}
+{\footnotesize\ttfamily bool Store\+::save (\begin{DoxyParamCaption}\item[{const string \&}]{output\+Name }\end{DoxyParamCaption})}
+
+
+
+save creates a file with all the elements in the database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em output\+Name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+
+
+Definition at line 323 of file Store.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{323                                         \{}
+\DoxyCodeLine{324   ofstream outF(outputName);}
+\DoxyCodeLine{325   \textcolor{keywordflow}{if} (!outF)\{}
+\DoxyCodeLine{326     cerr << \textcolor{stringliteral}{"Can't open file \(\backslash\)n"};}
+\DoxyCodeLine{327     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{328   \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{329     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} it = mediaFolder.begin(); it != mediaFolder.end(); it++)}
+\DoxyCodeLine{330       it->second->write(outF);}
+\DoxyCodeLine{331     outF.close();}
+\DoxyCodeLine{332     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{333   \}}
+\DoxyCodeLine{334 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_store_a17e928204e65fbf4a2ddf0f091a6bb5c}\label{class_store_a17e928204e65fbf4a2ddf0f091a6bb5c}} 
+\index{Store@{Store}!showAll@{showAll}}
+\index{showAll@{showAll}!Store@{Store}}
+\subsubsection{\texorpdfstring{showAll()}{showAll()}}
+{\footnotesize\ttfamily void Store\+::show\+All (\begin{DoxyParamCaption}\item[{const string \&}]{name,  }\item[{ostream \&}]{s }\end{DoxyParamCaption})}
+
+
+
+show\+All shows all the elements in the database 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+{\em s} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 199 of file Store.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{199                                                  \{}
+\DoxyCodeLine{200   \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} it = mediaFolder.begin(); it != mediaFolder.end(); it++)}
+\DoxyCodeLine{201     it->second->show(s);}
+\DoxyCodeLine{202   \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} it = groupFolder.begin(); it != groupFolder.end(); it++)}
+\DoxyCodeLine{203     it->second->show(s);}
+\DoxyCodeLine{204 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_store_aca9d101ffa9d85c568e44036c719efa7}\label{class_store_aca9d101ffa9d85c568e44036c719efa7}} 
+\index{Store@{Store}!showElement@{showElement}}
+\index{showElement@{showElement}!Store@{Store}}
+\subsubsection{\texorpdfstring{showElement()}{showElement()}}
+{\footnotesize\ttfamily void Store\+::show\+Element (\begin{DoxyParamCaption}\item[{const string \&}]{name,  }\item[{ostream \&}]{s }\end{DoxyParamCaption})}
+
+
+
+show\+Element given a name shows an specific element in the database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+{\em s} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 212 of file Store.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{212                                                      \{}
+\DoxyCodeLine{213   \textcolor{keywordflow}{try}\{}
+\DoxyCodeLine{214     matchPattern(name);}
+\DoxyCodeLine{215     notFoundElement(mediaFolder, name);}
+\DoxyCodeLine{216     \textcolor{keyword}{auto} mult = mediaFolder.find(name);}
+\DoxyCodeLine{217     mult->second->show(s);}
+\DoxyCodeLine{218   \}\textcolor{keywordflow}{catch} (\mbox{\hyperlink{struct_existence_exception}{ExistenceException}} \&e)\{}
+\DoxyCodeLine{219     std::cerr << \textcolor{stringliteral}{"A multimedia element named: "} << e.exc << \textcolor{stringliteral}{" doesn't exists. "};}
+\DoxyCodeLine{220     \textcolor{keywordflow}{try}\{}
+\DoxyCodeLine{221       notFoundGroup(groupFolder, name);}
+\DoxyCodeLine{222       \textcolor{keyword}{auto} group = groupFolder.find(name);}
+\DoxyCodeLine{223       group->second->show(s);}
+\DoxyCodeLine{224     \}\textcolor{keywordflow}{catch} (\mbox{\hyperlink{struct_existence_exception}{ExistenceException}} \&e)\{}
+\DoxyCodeLine{225       s << \textcolor{stringliteral}{"Multimedia element or group "} << e.exc << \textcolor{stringliteral}{" not found.  "};}
+\DoxyCodeLine{226     \}}
+\DoxyCodeLine{227   \}\textcolor{keywordflow}{catch} (\mbox{\hyperlink{struct_pattern_exception}{PatternException}} \& e)\{}
+\DoxyCodeLine{228     s << e.exc << \textcolor{stringliteral}{": doesn't have a permitted pattern.  "} ;}
+\DoxyCodeLine{229   \}}
+\DoxyCodeLine{230 \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_store_8h}{Store.\+h}}\item 
+\mbox{\hyperlink{_store_8cpp}{Store.\+cpp}}\end{DoxyCompactItemize}

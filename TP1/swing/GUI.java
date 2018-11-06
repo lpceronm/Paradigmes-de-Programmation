@@ -1,3 +1,11 @@
+/*!
+ * \file
+ * \brief  GUI class 
+ * \author Laura CERON
+ * \date   6 nov. 2018
+ *  
+ */
+
 import java.awt.*;
 import java.awt.event.*;
 
