@@ -28,11 +28,11 @@ int serverMain(){
   int *chap2 = new int[3]{1, 2, 3};
   int *chap = new int[12]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
   Sst store(new Store());
-  Smt p = store->createPhoto("PhotoMap", "photo/test.png", 1, 1 + 2.0);
-  Smt p1 = store->createPhoto("Photo", "photo/test.png", 1.02, 3.1+ 2.0);
-  Smt v1 = store->createVideo("Video2", "video/test.png", 11);
-  Smt f = store->createFilm("film", "video/video.mp4", 20, 12, chap);
-  Smt f2 = store->createFilm("film2", "pa2th", 20, 3, chap2);
+  Smt p = store->createPhoto("IronMan", "photo/ironman.png", 1, 1 + 2.0);
+  Smt p1 = store->createPhoto("Sea", "photo/sea.png", 1.02, 3.1+ 2.0);
+  Smt v1 = store->createVideo("Promo1", "video/promo.mp4", 11);
+  Smt f = store->createFilm("Harry", "video/harry.mp4", 20, 12, chap);
+  Smt f2 = store->createFilm("Target", "video/video.mp4", 20, 3, chap2);
 
   p.reset();
   p1.reset();

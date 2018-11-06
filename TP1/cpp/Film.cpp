@@ -9,6 +9,10 @@
 #include "Film.h"
 #include "Video.h"
 
+/**
+ * @brief Construct a new Film object
+ * 
+ */
 Film::Film(){}
 
 Film::Film(const string &name, const string &path, int duration, int size, const int *chapter) : 
@@ -17,6 +21,11 @@ Film::Film(const string &name, const string &path, int duration, int size, const
   // memcpy(chapters, chapter, size * (sizeof(chapter)));
 }
 
+/**
+ * @brief Copy constructor
+ * 
+ * @param from 
+ */
 Film::Film(const Film& from): Video(from){ 
   chapNumber = from.chapNumber;
   chapters = new int[from.chapNumber];
@@ -36,7 +45,10 @@ Film& Film:: operator=(const Film& from) {
   }
   return *this;
 }
-
+/**
+ * @brief Destroy the Film:: Film object
+ * 
+ */
 Film::~Film(){
   delete[] chapters;
   cout << "Films deleted " + getName() + "\n";
@@ -48,7 +60,11 @@ void Film::setChapters(const int *chapter, int size){
   copyChapters(size, chapter);
   // memcpy(chapters, chapter, size * (sizeof(chapter)));
 }
-
+/**
+ * @brief getters
+ * 
+ * @return const int* 
+ */
 const int *Film::getChapters() const { return chapters; }
 
 const int Film::getChapNumber() { return chapNumber; }
@@ -60,6 +76,12 @@ void Film::show(ostream &s){
   }
 }
 
+/**
+ * @brief write, serializer
+ * 
+ * @param os 
+ */
+
 void Film::write(ostream &os){
   os << className()<< '\n';
   Multimedia::write(os);
@@ -69,6 +91,12 @@ void Film::write(ostream &os){
   for(int i = 0; i < chapNumber; i++)
     os << '\t' << chapters[i] << '\n'; 
 }
+
+/**
+ * @brief read, serializer
+ * 
+ * @param is 
+ */
 
 void Film::read(istream &is){
   Video::read(is);
@@ -83,6 +111,12 @@ void Film::read(istream &is){
   }
 }
 
+/**
+ * @brief makes the deep copy of the chapters array
+ * 
+ * @param size 
+ * @param chap 
+ */
 void Film::copyChapters(int size, const int *chap){
   for (int i = 0; i < size; i++){
     chapters[i] = chap[i];
