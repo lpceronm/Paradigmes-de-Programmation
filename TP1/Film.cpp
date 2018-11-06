@@ -48,7 +48,7 @@ const int Film::getChapNumber() { return chapNumber; }
 void Film::show(ostream &s){
   Video::show(s);
   for (int i = 0; i < chapNumber; i++){
-    s << "\t Chapter" << i << ": " << chapters[i] << ",  ";
+    s << ";\t Chapter" << i << ": " << chapters[i] << ",  ";
   }
 }
 

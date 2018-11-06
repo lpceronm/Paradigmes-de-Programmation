@@ -16,8 +16,8 @@ string Multimedia::getName() const { return name; }
 string Multimedia::getPath() const { return path; }
 
 void Multimedia::show(ostream &s){
-  s << "Name: " + getName() << "    "
-    << "Path: " + getPath() << "    ";
+  s << ";Name: " + getName() << "    "
+    << ";Path: " + getPath() << "   ";
 }
 
 void Multimedia::write(ostream &s){

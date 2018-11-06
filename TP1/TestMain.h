@@ -71,13 +71,13 @@ int testMain(){
   // f2->write(myfile);
   // myfile.close();
 
-  // bool i = store->save("example.txt");
+  bool i = store->save("example.txt");
 
-  // Sst store1(new Store());
+  Sst store1(new Store());
 
-  // i = store1->load("example.txt"); 
-  // store1->showElement("film",cout);
-  // store1->showElement("film2",cout);
+  i = store1->load("example.txt"); 
+  store1->showElement("film",cout);
+  store1->showElement("film2",cout);
 
 
   // store->processRequest("film",cout);

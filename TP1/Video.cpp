@@ -15,7 +15,7 @@ int Video:: getDuration() const { return duration; }
 
 void Video::show(ostream &s){
    Multimedia::show(s);
-    s << "Duration: " << getDuration() << ",   ";
+    s << ";Duration: " << getDuration() << ",   ";
 }
 
 void Video::play(){
