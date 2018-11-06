@@ -22,7 +22,7 @@ void Photo::show(ostream &s){
 }
 
 void Photo::play(){
-  string command("open " + getPath() + " &");
+  string command("imagej " + getPath() + " &");
   system(command.c_str());
 }
 

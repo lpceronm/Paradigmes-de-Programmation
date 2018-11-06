@@ -19,7 +19,7 @@ void Video::show(ostream &s){
 }
 
 void Video::play(){
-   string command("open " + getPath() + " &");
+   string command("mpv " + getPath() + " &");
     system(command.c_str());
 }
 

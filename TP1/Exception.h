@@ -1,8 +1,24 @@
+
+/*!
+ * \file
+ * \brief  Class in charge of the exception handling 
+ * \author Laura CERON
+ * \date   6 nov. 2018
+ *  
+ * This class has the functions to check whether there is an exception of existance or a pattern
+ *
+ */
+
 #ifndef EXCEPTION_H
 #define EXCEPTION_H
 
 #include <regex>
 
+/**
+ * @brief The ExistenceException raises an error when:
+ * - Creating  an object that already exists in the database 
+ * - When name is search that doesn't exist 
+ */
 struct ExistenceException : public exception{
   string exc;
   ExistenceException(string e) : exc(e) {}
@@ -37,6 +53,9 @@ bool notFoundGroup(Folder file, const string &name){
     return false;
 }
 
+/**
+ * @brief The PatternException raises an error when a file name doesn't match a permited pattern.
+ */
 struct PatternException : public exception{
   string exc;
   PatternException(string e) : exc(e){ };
