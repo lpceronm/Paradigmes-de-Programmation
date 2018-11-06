@@ -15,7 +15,8 @@
 #include <regex>
 
 /**
- * @brief The ExistenceException raises an error when:
+ * \struct  ExistenceException
+ * @brief raises an error when:
  * - Creating  an object that already exists in the database 
  * - When name is search that doesn't exist 
  */
@@ -24,6 +25,15 @@ struct ExistenceException : public exception{
   ExistenceException(string e) : exc(e) {}
 };
 
+/**
+ * \fn existsElement
+ * @brief existsElement given a name check whether it exists
+ * 
+ * @param file 
+ * @param name 
+ * @return true 
+ * @return false 
+ */
 bool existsElement(File file, const string &name){
   
   if (file.find(name) != file.end())
@@ -32,6 +42,15 @@ bool existsElement(File file, const string &name){
     return false;
 }
 
+/**
+ * \fn existsGroup
+ * @brief existsGroup given a name check whether it exists
+ * 
+ * @param file 
+ * @param name 
+ * @return true 
+ * @return false 
+ */
 bool existsGroup(Folder file, const string &name){
   if (file.find(name) != file.end())
     throw ExistenceException(name);
@@ -39,6 +58,15 @@ bool existsGroup(Folder file, const string &name){
     return false;
 }
 
+/**
+ * \fn notFoundElement 
+ * @brief notFoundElement raises when an element is not found
+ * 
+ * @param file 
+ * @param name 
+ * @return true 
+ * @return false 
+ */
 bool notFoundElement(File file, const string &name){
   if (file.find(name) == file.end())
     throw ExistenceException(name);
