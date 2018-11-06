@@ -35,7 +35,7 @@ public class GUI extends JFrame {
 		getContentPane().add(txtA, BorderLayout.CENTER);
 		
 		JScrollPane sp = new JScrollPane(txtA,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-        getContentPane().add(sp);
+    getContentPane().add(sp);
 		
 //	 	Buttons
         
